@@ -20,14 +20,14 @@ class TodoComponent {
     this.items = ["Eat Nihari", "Buy Choclate", "Go on vacation"];
   }
   
-  addItem(item: string){
-    this.items.push(item);
+  addItem(field: any){
+    this.items.push(field.value);
+    field.value = null;
   }
   
   doneTyping($event) {
     if($event.which === 13) {
-      this.addItem($event.target.value);
-      $event.target.value = null;
+      this.addItem($event.target);
     }
   }
 }

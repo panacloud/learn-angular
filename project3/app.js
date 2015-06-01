@@ -15,13 +15,13 @@ var TodoComponent = (function () {
     function TodoComponent() {
         this.items = ["Eat Nihari", "Buy Choclate", "Go on vacation"];
     }
-    TodoComponent.prototype.addItem = function (item) {
-        this.items.push(item);
+    TodoComponent.prototype.addItem = function (field) {
+        this.items.push(field.value);
+        field.value = null;
     };
     TodoComponent.prototype.doneTyping = function ($event) {
         if ($event.which === 13) {
-            this.addItem($event.target.value);
-            $event.target.value = null;
+            this.addItem($event.target);
         }
     };
     TodoComponent = __decorate([
