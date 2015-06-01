@@ -17,3 +17,5 @@ https://auth0.com/blog/2015/05/14/creating-your-first-real-world-angular-2-app-f
 
 
 https://github.com/auth0/angular2-authentication-sample
+
+https://gist.github.com/davideast/0b7efc93e0ba9aaa446e
