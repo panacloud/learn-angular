@@ -1,20 +1,17 @@
-import {Component, View, bootstrap, For, If} from 'angular2/angular2';
+import {Component, View, For, If} from 'angular2/angular2';
 
+//TypeScript
 @Component({
   selector: 'child'
 })
 @View({
-  templateUrl: "<p>{{message}}</p>",
-  directives: [
-    For,
-    If
-  ]
+  template: `
+    <p> {{ message }} </p>
+  `
 })
 export class ChildComponent {
   message: string;
-  
   constructor() {
-    this.message = "I am the child component";
+    this.message = "I'm the child";
   }
-  
 }

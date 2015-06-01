@@ -12,18 +12,14 @@ if (typeof __metadata !== "function") __metadata = function (k, v) {
 var angular2_1 = require('angular2/angular2');
 var ChildComponent = (function () {
     function ChildComponent() {
-        this.message = "I am the child component";
+        this.message = "I'm the child";
     }
     ChildComponent = __decorate([
         angular2_1.Component({
             selector: 'child'
         }),
         angular2_1.View({
-            templateUrl: "<p>{{message}}</p>",
-            directives: [
-                angular2_1.For,
-                angular2_1.If
-            ]
+            template: "\n    <p> {{ message }} </p>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], ChildComponent);

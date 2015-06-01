@@ -12,23 +12,20 @@ if (typeof __metadata !== "function") __metadata = function (k, v) {
 };
 var angular2_1 = require('angular2/angular2');
 var ChildComponent_1 = require('ChildComponent');
-var TreeComponent = (function () {
-    function TreeComponent() {
+var ParentComponent = (function () {
+    function ParentComponent() {
+        this.message = "I'm the parent";
     }
-    TreeComponent = __decorate([
+    ParentComponent = __decorate([
         angular2_1.Component({
-            selector: 'my-app'
+            selector: 'parent'
         }),
         angular2_1.View({
-            template: "<p>Tree Component</p><child></child>",
-            directives: [
-                angular2_1.For,
-                angular2_1.If,
-                ChildComponent_1.ChildComponent
-            ]
+            template: "\n    <h1>{{ message }}</h1>\n    <child></child>\n  ",
+            directives: [ChildComponent_1.ChildComponent]
         }), 
         __metadata('design:paramtypes', [])
-    ], TreeComponent);
-    return TreeComponent;
+    ], ParentComponent);
+    return ParentComponent;
 })();
-angular2_1.bootstrap(TreeComponent);
+angular2_1.bootstrap(ParentComponent);

@@ -4,24 +4,23 @@ import {Component, View, bootstrap, For, If} from 'angular2/angular2';
 import {ChildComponent} from 'ChildComponent';
 
 
-
+//TypeScript
 @Component({
-  selector: 'my-app'
+  selector: 'parent'
 })
 @View({
-  template: "<p>Tree Component</p><child></child>",
-  directives: [
-    For,
-    If,
-    ChildComponent
-  ]
+  template: `
+    <h1>{{ message }}</h1>
+    <child></child>
+  `,
+  directives: [ChildComponent]
 })
-class TreeComponent {
+class ParentComponent {
+  message: string;
   
   constructor() {
-    
+    this.message = "I'm the parent";
   }
-  
 }
 
-bootstrap(TreeComponent);
+bootstrap(ParentComponent);
