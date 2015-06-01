@@ -1,5 +1,5 @@
 We will follow this example:
-https://angular.io/docs/js/latest/guide/making-components.html
+https://angular.io/docs/js/latest/guide/user-input.html
 
 Additional Readings:
 
