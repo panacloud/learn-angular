@@ -3,7 +3,11 @@ https://angular.io/docs/js/latest/guide/making-components.html
 
 Additional Readings:
 
+https://www.youtube.com/watch?v=-dMBcqwvYA0
+
 http://victorsavkin.com/post/118372404541/the-core-concepts-of-angular-2
+
+http://victorsavkin.com/post/119943127151/angular-2-template-syntax
 
 http://angular-tips.com/blog/2015/05/an-introduction-to-angular-2/
 
