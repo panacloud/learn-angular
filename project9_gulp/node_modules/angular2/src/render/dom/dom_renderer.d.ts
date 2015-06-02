@@ -1,0 +1,37 @@
+import { ShadowDomStrategy } from './shadow_dom/shadow_dom_strategy';
+import { EventManager } from './events/event_manager';
+import { DomProtoView } from './view/proto_view';
+import { DomView } from './view/view';
+import { DomViewContainer } from './view/view_container';
+import { Renderer, RenderProtoViewRef, RenderViewRef } from '../api';
+export declare const DOCUMENT_TOKEN: string;
+export declare class DomRenderer extends Renderer {
+    _eventManager: EventManager;
+    _shadowDomStrategy: ShadowDomStrategy;
+    _document: any;
+    constructor(eventManager: EventManager, shadowDomStrategy: ShadowDomStrategy, document: any);
+    createRootHostView(hostProtoViewRef: RenderProtoViewRef, hostElementSelector: string): RenderViewRef;
+    detachFreeHostView(parentHostViewRef: RenderViewRef, hostViewRef: RenderViewRef): void;
+    createView(protoViewRef: RenderProtoViewRef): RenderViewRef;
+    destroyView(view: RenderViewRef): void;
+    attachComponentView(hostViewRef: RenderViewRef, elementIndex: number, componentViewRef: RenderViewRef): void;
+    setComponentViewRootNodes(componentViewRef: RenderViewRef, rootNodes: List<any>): void;
+    getHostElement(hostViewRef: RenderViewRef): any;
+    detachComponentView(hostViewRef: RenderViewRef, boundElementIndex: number, componentViewRef: RenderViewRef): void;
+    attachViewInContainer(parentViewRef: RenderViewRef, boundElementIndex: number, atIndex: number, viewRef: RenderViewRef): void;
+    detachViewInContainer(parentViewRef: RenderViewRef, boundElementIndex: number, atIndex: number, viewRef: RenderViewRef): void;
+    hydrateView(viewRef: RenderViewRef): void;
+    dehydrateView(viewRef: RenderViewRef): void;
+    setElementProperty(viewRef: RenderViewRef, elementIndex: number, propertyName: string, propertyValue: any): void;
+    callAction(viewRef: RenderViewRef, elementIndex: number, actionExpression: string, actionArgs: any): void;
+    setText(viewRef: RenderViewRef, textNodeIndex: number, text: string): void;
+    setEventDispatcher(viewRef: RenderViewRef, dispatcher: any): void;
+    _createView(protoView: DomProtoView, inplaceElement: any): DomView;
+    _createEventListener(view: any, element: any, elementIndex: any, eventName: any, eventLocals: any): void;
+    _moveViewNodesAfterSibling(sibling: any, view: any): void;
+    _moveViewNodesIntoParent(parent: any, view: any): void;
+    _removeViewNodes(view: any): void;
+    _getOrCreateViewContainer(parentView: DomView, boundElementIndex: any): DomViewContainer;
+    _createGlobalEventListener(view: any, elementIndex: any, eventName: any, eventTarget: any, fullName: any): Function;
+}
+export declare var __esModule: boolean;

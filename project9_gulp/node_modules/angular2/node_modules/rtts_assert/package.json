@@ -1,0 +1,78 @@
+{
+  "name": "rtts_assert",
+  "version": "2.0.0-alpha.25",
+  "description": "A run-time type assertion library for JavaScript",
+  "homepage": "https://github.com/angular/angular",
+  "bugs": {
+    "url": "https://github.com/angular/angular/issues"
+  },
+  "contributors": [
+    {
+      "name": "Alex Eagle",
+      "email": "alexeagle@google.com"
+    },
+    {
+      "name": "Chirayu Krishnappa",
+      "email": "chirayu@google.com"
+    },
+    {
+      "name": "Jeff Cross",
+      "email": "crossj@google.com"
+    },
+    {
+      "name": "Misko Hevery",
+      "email": "misko@google.com"
+    },
+    {
+      "name": "Rado Kirov",
+      "email": "radokirov@google.com"
+    },
+    {
+      "name": "Tobias Bosch",
+      "email": "tbosch@google.com"
+    },
+    {
+      "name": "Victor Savkin",
+      "email": "vsavkin@google.com"
+    },
+    {
+      "name": "Yegor Jbanov",
+      "email": "yjbanov@google.com"
+    }
+  ],
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "yargs": "2.3.*",
+    "gulp-sourcemaps": "1.3.*",
+    "gulp-traceur": "0.16.*",
+    "gulp": "^3.8.8",
+    "gulp-rename": "^1.2.0",
+    "through2": "^0.6.1"
+  },
+  "_id": "rtts_assert@2.0.0-alpha.25",
+  "scripts": {},
+  "_shasum": "4068a2c332d2d43a4ab511cc8ee80b07754830b1",
+  "_from": "rtts_assert@2.0.0-alpha.25",
+  "_resolved": "https://registry.npmjs.org/rtts_assert/-/rtts_assert-2.0.0-alpha.25.tgz",
+  "_npmVersion": "2.9.1",
+  "_nodeVersion": "0.12.2",
+  "_npmUser": {
+    "name": "angularcore",
+    "email": "angular-core+npm@google.com"
+  },
+  "dist": {
+    "shasum": "4068a2c332d2d43a4ab511cc8ee80b07754830b1",
+    "tarball": "http://registry.npmjs.org/rtts_assert/-/rtts_assert-2.0.0-alpha.25.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "vojtajina",
+      "email": "vojta.jina@gmail.com"
+    },
+    {
+      "name": "angularcore",
+      "email": "angular-core+npm@google.com"
+    }
+  ],
+  "directories": {}
+}

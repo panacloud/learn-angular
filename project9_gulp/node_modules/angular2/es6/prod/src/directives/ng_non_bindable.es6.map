@@ -1,0 +1,1 @@
+{"version":3,"file":"ng_non_bindable.js","sourceRoot":"./","sources":["angular2/src/directives/ng_non_bindable.ts"],"names":["NgNonBindable"],"mappings":";;;;;;;;;;;AAAA,OAAO,EAAC,SAAS,EAAC,MAAM,sBAAsB,CAAC;AAiB/C,AAfA;;;;;;;;;;;;;;GAcG;;AAGHA,CAACA;AAFD;IAAC,SAAS,CAAC,EAAC,QAAQ,EAAE,mBAAmB,EAAE,eAAe,EAAE,KAAK,EAAC,CAAC;;kBAElE;AAAA"}
