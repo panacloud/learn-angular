@@ -1,17 +1,22 @@
-import {Component, View, For, If} from 'angular2/angular2';
+import {Component, View, For, If, EventEmitter} from 'angular2/angular2';
 
 //TypeScript
 @Component({
-  selector: 'child'
+  selector: 'child',
+  events: ['complete']
 })
 @View({
   template: `
-    <p> {{ message }} </p>
+    <button (click)="onPress()">Fire Complete Event</button>
   `
 })
 export class ChildComponent {
-  message: string;
+  complete: EventEmitter;
   constructor() {
-    this.message = "I'm the child";
+    this.complete = new EventEmitter();
+  }
+  
+  onPress(){
+    this.complete.next();
   }
 }

@@ -11,7 +11,7 @@ import {ChildComponent} from 'ChildComponent';
 @View({
   template: `
     <h1>{{ message }}</h1>
-    <child></child>
+    <child (complete)="workDone()"></child>
   `,
   directives: [ChildComponent]
 })
@@ -20,6 +20,10 @@ class ParentComponent {
   
   constructor() {
     this.message = "I'm the parent";
+  }
+  
+  workDone(){
+    console.log("Work is completed");
   }
 }
 

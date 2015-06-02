@@ -12,14 +12,18 @@ if (typeof __metadata !== "function") __metadata = function (k, v) {
 var angular2_1 = require('angular2/angular2');
 var ChildComponent = (function () {
     function ChildComponent() {
-        this.message = "I'm the child";
+        this.complete = new angular2_1.EventEmitter();
     }
+    ChildComponent.prototype.onPress = function () {
+        this.complete.next();
+    };
     ChildComponent = __decorate([
         angular2_1.Component({
-            selector: 'child'
+            selector: 'child',
+            events: ['complete']
         }),
         angular2_1.View({
-            template: "\n    <p> {{ message }} </p>\n  "
+            template: "\n    <button (click)=\"onPress()\">Fire Complete Event</button>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], ChildComponent);
