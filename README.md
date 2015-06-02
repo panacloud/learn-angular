@@ -11,3 +11,15 @@ Download VSCode from:
 
 https://www.visualstudio.com/en-us/products/code-vs.aspx
 
+We will also cover how to use Polymer Web Components with Angular 2 UI and Firebase as the backend:
+
+https://www.polymer-project.org/
+https://www.firebase.com/
+
+
+
+
+
+
+
+
