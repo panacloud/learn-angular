@@ -11,7 +11,7 @@ import {ChildComponent} from 'ChildComponent';
 @View({
   template: `
     <h1>{{ message }}</h1>
-    <child (complete)="workDone()"></child>
+    <child (complete)="workDone($event)"></child>
   `,
   directives: [ChildComponent]
 })
@@ -22,8 +22,8 @@ class ParentComponent {
     this.message = "I'm the parent";
   }
   
-  workDone(){
-    console.log("Work is completed");
+  workDone(eventData){
+    console.log(eventData +  " has completed work");
   }
 }
 

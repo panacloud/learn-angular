@@ -17,6 +17,6 @@ export class ChildComponent {
   }
   
   onPress(){
-    this.complete.next();
+    this.complete.next("Zia");
   }
 }

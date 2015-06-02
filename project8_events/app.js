@@ -16,15 +16,15 @@ var ParentComponent = (function () {
     function ParentComponent() {
         this.message = "I'm the parent";
     }
-    ParentComponent.prototype.workDone = function () {
-        console.log("Work is completed");
+    ParentComponent.prototype.workDone = function (eventData) {
+        console.log(eventData + " has completed work");
     };
     ParentComponent = __decorate([
         angular2_1.Component({
             selector: 'parent'
         }),
         angular2_1.View({
-            template: "\n    <h1>{{ message }}</h1>\n    <child (complete)=\"workDone()\"></child>\n  ",
+            template: "\n    <h1>{{ message }}</h1>\n    <child (complete)=\"workDone($event)\"></child>\n  ",
             directives: [ChildComponent_1.ChildComponent]
         }), 
         __metadata('design:paramtypes', [])

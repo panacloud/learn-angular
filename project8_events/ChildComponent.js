@@ -15,7 +15,7 @@ var ChildComponent = (function () {
         this.complete = new angular2_1.EventEmitter();
     }
     ChildComponent.prototype.onPress = function () {
-        this.complete.next();
+        this.complete.next("Zia");
     };
     ChildComponent = __decorate([
         angular2_1.Component({
