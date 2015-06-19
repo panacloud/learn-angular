@@ -9,5 +9,6 @@ export declare class KeyEventsPlugin extends EventManagerPlugin {
     };
     static getEventFullKey(event: any): string;
     static eventCallback(element: any, shouldSupportBubble: any, fullKey: any, handler: any, zone: any): (event: any) => void;
+    static _normalizeKey(keyName: string): string;
 }
 export declare var __esModule: boolean;

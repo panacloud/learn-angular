@@ -21,6 +21,7 @@ var dom_renderer_1 = require('angular2/src/render/dom/dom_renderer');
 var dom_adapter_1 = require('angular2/src/dom/dom_adapter');
 /**
  * @exportedAs angular2/test
+ * TODO(juliemr): Deprecate in favor of TestComponentBuilder
  */
 var TestBed = (function () {
     function TestBed(injector) {
@@ -55,7 +56,7 @@ var TestBed = (function () {
      * @param {Type} to
      */
     TestBed.prototype.overrideDirective = function (component, from, to) {
-        this._injector.get(template_resolver_1.TemplateResolver).overrideTemplateDirective(component, from, to);
+        this._injector.get(template_resolver_1.TemplateResolver).overrideViewDirective(component, from, to);
     };
     /**
      * Creates an `AppView` for the given component.
@@ -101,6 +102,7 @@ exports.TestBed = TestBed;
 /**
  * Proxy to `AppView` return by `createView` in {@link TestBed} which offers a high level API for
  * tests.
+ * TODO(juliemr): Deprecate in favor of TestElement
  */
 var ViewProxy = (function () {
     function ViewProxy(componentRef) {

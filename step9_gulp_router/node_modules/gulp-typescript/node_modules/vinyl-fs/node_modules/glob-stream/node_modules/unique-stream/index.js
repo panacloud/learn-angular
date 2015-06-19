@@ -1,5 +1,20 @@
+'use strict';
+
 var filter = require('through2-filter').obj;
-var Set = require('es6-set');
+var ES6Set;
+if (typeof global.Set === 'function') {
+  ES6Set = global.Set;
+} else {
+  ES6Set = function() {
+    this.keys = [];
+    this.has = function(val) {
+      return this.keys.indexOf(val) !== -1;
+    },
+    this.add = function(val) {
+      this.keys.push(val);
+    }
+  }
+}
 
 function prop(propName) {
   return function (data) {
@@ -9,7 +24,7 @@ function prop(propName) {
 
 module.exports = unique;
 function unique(propName, keyStore) {
-  keyStore = keyStore || new Set();
+  keyStore = keyStore || new ES6Set();
 
   var keyfn = JSON.stringify;
   if (typeof propName === 'string') {
@@ -23,9 +38,9 @@ function unique(propName, keyStore) {
 
     if (keyStore.has(key)) {
       return false;
-    } else {
-      keyStore.add(key);
-      return true;
     }
+
+    keyStore.add(key);
+    return true;
   });
 }

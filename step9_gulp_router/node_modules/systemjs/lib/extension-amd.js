@@ -60,14 +60,16 @@ function amd(loader) {
       return require.apply(null, Array.prototype.splice.call(arguments, 1, arguments.length - 1));
 
     // amd require
-    if (names instanceof Array)
-      Promise.all(names.map(function(name) {
-        return loader['import'](name, referer);
-      })).then(function(modules) {
+    if (names instanceof Array) {
+      var dynamicRequires = [];
+      for (var i = 0; i < names.length; i++)
+        dynamicRequires.push(loader['import'](names[i], referer));
+      Promise.all(dynamicRequires).then(function(modules) {
         if(callback) {
           callback.apply(null, modules);
         }
       }, errback);
+    }
 
     // commonjs require
     else if (typeof names == 'string') {
@@ -78,12 +80,18 @@ function amd(loader) {
     else
       throw new TypeError('Invalid require');
   };
-  loader.amdRequire = require;
+  loader.amdRequire = function() {
+    return require.apply(this, arguments);
+  };
 
   function makeRequire(parentName, staticRequire, loader) {
     return function(names, callback, errback) {
-      if (typeof names == 'string')
-        return staticRequire(names);
+      if (typeof names == 'string') {
+        if (typeof callback === 'function')
+          names = [names];
+        else
+          return staticRequire(names);
+      }
       return require.call(loader, names, callback, errback, { name: parentName });
     }
   }
@@ -166,7 +174,13 @@ function amd(loader) {
           if (requireIndex != -1)
             depValues.splice(requireIndex, 0, makeRequire(module.id, require, loader));
 
+          // set global require to AMD require
+          var curRequire = global.require;
+          global.require = System.amdRequire;
+
           var output = factory.apply(global, depValues);
+
+          global.require = curRequire;
 
           if (typeof output == 'undefined' && module)
             output = module.exports;

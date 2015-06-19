@@ -36,5 +36,13 @@ function microBenchmark(name, iterationCount, callback) {
     browser_1.window.console.timeEnd(durationName);
 }
 exports.microBenchmark = microBenchmark;
+function windowProfile(name) {
+    browser_1.window.console.profile(name);
+}
+exports.windowProfile = windowProfile;
+function windowProfileEnd(name) {
+    browser_1.window.console.profileEnd(name);
+}
+exports.windowProfileEnd = windowProfileEnd;
 exports.__esModule = true;
 //# sourceMappingURL=benchmark_util.js.map

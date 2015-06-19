@@ -1,4 +1,4 @@
-(function($__global) {
+(function($__global, $__globalName) {
 
 $__global.upgradeSystemLoader = function() {
   $__global.upgradeSystemLoader = undefined;
@@ -10,6 +10,8 @@ $__global.upgradeSystemLoader = function() {
         return i;
     return -1;
   }
+
+  var isWindows = typeof process != 'undefined' && !!process.platform.match(/^win/);
 
   // Absolute URL parsing, from https://gist.github.com/Yaffle/1088850
   function parseURI(url) {
@@ -41,6 +43,9 @@ $__global.upgradeSystemLoader = function() {
       });
       return output.join('').replace(/^\//, input.charAt(0) === '/' ? '/' : '');
     }
+
+    if (isWindows)
+      href = href.replace(/\\/g, '/');
 
     href = parseURI(href || '');
     base = parseURI(base || '');

@@ -12,9 +12,9 @@ var MockTemplateResolver = (function (_super) {
     __extends(MockTemplateResolver, _super);
     function MockTemplateResolver() {
         _super.call(this);
-        this._templates = collection_1.MapWrapper.create();
+        this._views = collection_1.MapWrapper.create();
         this._inlineTemplates = collection_1.MapWrapper.create();
-        this._templateCache = collection_1.MapWrapper.create();
+        this._viewCache = collection_1.MapWrapper.create();
         this._directiveOverrides = collection_1.MapWrapper.create();
     }
     /**
@@ -25,7 +25,7 @@ var MockTemplateResolver = (function (_super) {
      */
     MockTemplateResolver.prototype.setView = function (component, view) {
         this._checkOverrideable(component);
-        collection_1.MapWrapper.set(this._templates, component, view);
+        collection_1.MapWrapper.set(this._views, component, view);
     };
     /**
      * Overrides the inline template for a component - other configuration remains unchanged.
@@ -44,7 +44,7 @@ var MockTemplateResolver = (function (_super) {
      * @param {Type} from
      * @param {Type} to
      */
-    MockTemplateResolver.prototype.overrideTemplateDirective = function (component, from, to) {
+    MockTemplateResolver.prototype.overrideViewDirective = function (component, from, to) {
         this._checkOverrideable(component);
         var overrides = collection_1.MapWrapper.get(this._directiveOverrides, component);
         if (lang_1.isBlank(overrides)) {
@@ -55,20 +55,20 @@ var MockTemplateResolver = (function (_super) {
     };
     /**
      * Returns the {@link View} for a component:
-     * - Set the {@link View} to the overridden template when it exists or fallback to the default
+     * - Set the {@link View} to the overridden view when it exists or fallback to the default
      * `TemplateResolver`,
      *   see `setView`.
-     * - Override the directives, see `overrideTemplateDirective`.
+     * - Override the directives, see `overrideViewDirective`.
      * - Override the @View definition, see `setInlineTemplate`.
      *
      * @param component
      * @returns {ViewDefinition}
      */
     MockTemplateResolver.prototype.resolve = function (component) {
-        var view = collection_1.MapWrapper.get(this._templateCache, component);
+        var view = collection_1.MapWrapper.get(this._viewCache, component);
         if (lang_1.isPresent(view))
             return view;
-        view = collection_1.MapWrapper.get(this._templates, component);
+        view = collection_1.MapWrapper.get(this._views, component);
         if (lang_1.isBlank(view)) {
             view = _super.prototype.resolve.call(this, component);
         }
@@ -93,7 +93,7 @@ var MockTemplateResolver = (function (_super) {
         if (lang_1.isPresent(inlineTemplate)) {
             view = new view_1.View({ template: inlineTemplate, templateUrl: null, directives: view.directives });
         }
-        collection_1.MapWrapper.set(this._templateCache, component, view);
+        collection_1.MapWrapper.set(this._viewCache, component, view);
         return view;
     };
     /**
@@ -105,7 +105,7 @@ var MockTemplateResolver = (function (_super) {
      * @param {Type} component
      */
     MockTemplateResolver.prototype._checkOverrideable = function (component) {
-        var cached = collection_1.MapWrapper.get(this._templateCache, component);
+        var cached = collection_1.MapWrapper.get(this._viewCache, component);
         if (lang_1.isPresent(cached)) {
             throw new lang_1.BaseException("The component " + lang_1.stringify(component) + " has already been compiled, its configuration can not be changed");
         }

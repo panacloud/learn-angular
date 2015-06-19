@@ -101,5 +101,6 @@
     "tarball": "http://registry.npmjs.org/gulp/-/gulp-3.9.0.tgz"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/gulp/-/gulp-3.9.0.tgz"
+  "_resolved": "https://registry.npmjs.org/gulp/-/gulp-3.9.0.tgz",
+  "readme": "ERROR: No README data found!"
 }

@@ -231,6 +231,15 @@ asyncTest('AMD detection test with byte order mark (BOM)', function() {
   }, err);
 });
 
+asyncTest('AMD with dynamic require callback', function() {
+  System['import']('tests/amd-dynamic-require').then(function(m) {
+    m.onCallback(function(m) {
+      ok(m === 'dynamic');
+      start();
+    });
+  });
+});
+
 System.bundles['tests/amd-bundle'] = ['bundle-1', 'bundle-2'];
 asyncTest('Loading an AMD bundle', function() {
   System['import']('bundle-1').then(function(m) {
@@ -285,9 +294,16 @@ asyncTest('CommonJS setting module.exports', function() {
   }, err);
 });
 
-asyncTest('CommonJS detection variation', function() {
+asyncTest('CommonJS detection variation 1', function() {
   System['import']('tests/commonjs-variation').then(function(m) {
     ok(m.e === System.get('@empty'));
+    start();
+  }, err);
+});
+
+asyncTest('CommonJS detection variation 2', function() {
+  System['import']('tests/commonjs-variation2').then(function(m) {
+    ok(typeof m.OpaqueToken === 'function');
     start();
   }, err);
 });
@@ -523,7 +539,7 @@ if (ie8)
   return;
 
 asyncTest('Async functions', function() {
-  System.babelOptions = { experimental: true };
+  System.babelOptions = { stage: 0 };
   System.traceurOptions = { asyncFunctions: true };
   System['import']('tests/async').then(function(m) {
     ok(true);
@@ -533,7 +549,7 @@ asyncTest('Async functions', function() {
 
 asyncTest('Wrapper module support', function() {
   System['import']('tests/wrapper').then(function(m) {
-    ok(m['default'] == 'default1', 'Wrapper module not defined.');
+    ok(m.d == 'default1', 'Wrapper module not defined.');
     start();
   }, err);
 });
@@ -748,7 +764,7 @@ asyncTest("System.clone", function() {
 
 if(typeof window !== 'undefined' && window.Worker) {
   asyncTest('Using SystemJS in a Web Worker', function() {
-    var worker = new Worker('tests/worker.js');
+    var worker = new Worker('tests/worker-' + System.transpiler + '.js');
     worker.onmessage = function(e) {
       ok(e.data.amd === 'AMD Module');
       ok(e.data.es6 === 'ES6 Module');

@@ -18,9 +18,7 @@ var Log = (function () {
             collection_1.ListWrapper.push(_this._result, value);
         };
     };
-    Log.prototype.result = function () {
-        return collection_1.ListWrapper.join(this._result, "; ");
-    };
+    Log.prototype.result = function () { return collection_1.ListWrapper.join(this._result, "; "); };
     return Log;
 })();
 exports.Log = Log;
@@ -47,5 +45,59 @@ function el(html) {
     return dom_adapter_1.DOM.firstChild(dom_adapter_1.DOM.content(dom_adapter_1.DOM.createTemplate(html)));
 }
 exports.el = el;
+var _RE_SPECIAL_CHARS = ['-', '[', ']', '/', '{', '}', '\\', '(', ')', '*', '+', '?', '.', '^', '$', '|'];
+var _ESCAPE_RE = lang_1.RegExpWrapper.create("[\\" + _RE_SPECIAL_CHARS.join('\\') + "]");
+function containsRegexp(input) {
+    return lang_1.RegExpWrapper.create(lang_1.StringWrapper.replaceAllMapped(input, _ESCAPE_RE, function (match) { return ("\\" + match[0]); }));
+}
+exports.containsRegexp = containsRegexp;
+function normalizeCSS(css) {
+    css = lang_1.StringWrapper.replaceAll(css, lang_1.RegExpWrapper.create('\\s+'), ' ');
+    css = lang_1.StringWrapper.replaceAll(css, lang_1.RegExpWrapper.create(':\\s'), ':');
+    css = lang_1.StringWrapper.replaceAll(css, lang_1.RegExpWrapper.create("\\'"), '"');
+    css = lang_1.StringWrapper.replaceAllMapped(css, lang_1.RegExpWrapper.create('url\\(\\"(.+)\\"\\)'), function (match) { return ("url(" + match[1] + ")"); });
+    css = lang_1.StringWrapper.replaceAllMapped(css, lang_1.RegExpWrapper.create('\\[(.+)=([^"\\]]+)\\]'), function (match) { return ("[" + match[1] + "=\"" + match[2] + "\"]"); });
+    return css;
+}
+exports.normalizeCSS = normalizeCSS;
+var _singleTagWhitelist = ['br', 'hr', 'input'];
+function stringifyElement(el) {
+    var result = '';
+    if (dom_adapter_1.DOM.isElementNode(el)) {
+        var tagName = lang_1.StringWrapper.toLowerCase(dom_adapter_1.DOM.tagName(el));
+        // Opening tag
+        result += "<" + tagName;
+        // Attributes in an ordered way
+        var attributeMap = dom_adapter_1.DOM.attributeMap(el);
+        var keys = collection_1.ListWrapper.create();
+        collection_1.MapWrapper.forEach(attributeMap, function (v, k) { collection_1.ListWrapper.push(keys, k); });
+        collection_1.ListWrapper.sort(keys);
+        for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
+            var attValue = collection_1.MapWrapper.get(attributeMap, key);
+            if (!lang_1.isString(attValue)) {
+                result += " " + key;
+            }
+            else {
+                result += " " + key + "=\"" + attValue + "\"";
+            }
+        }
+        result += '>';
+        // Children
+        var children = dom_adapter_1.DOM.childNodes(dom_adapter_1.DOM.templateAwareRoot(el));
+        for (var j = 0; j < children.length; j++) {
+            result += stringifyElement(children[j]);
+        }
+        // Closing tag
+        if (!collection_1.ListWrapper.contains(_singleTagWhitelist, tagName)) {
+            result += "</" + tagName + ">";
+        }
+    }
+    else {
+        result += dom_adapter_1.DOM.getText(el);
+    }
+    return result;
+}
+exports.stringifyElement = stringifyElement;
 exports.__esModule = true;
 //# sourceMappingURL=utils.js.map

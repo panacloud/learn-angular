@@ -4,10 +4,16 @@ export declare var afterEach: {
     (action: () => void): void;
     (action: (done: () => void) => void): void;
 };
-export declare var expect: {
-    (spy: Function): jasmine.Matchers;
-    (actual: any): jasmine.Matchers;
-};
+export interface NgMatchers extends jasmine.Matchers {
+    toBe(expected: any): boolean;
+    toEqual(expected: any): boolean;
+    toBePromise(): boolean;
+    toBeAnInstanceOf(expected: any): boolean;
+    toHaveText(expected: any): boolean;
+    toImplement(expected: any): boolean;
+    not: NgMatchers;
+}
+export declare var expect: (actual: any) => NgMatchers;
 export declare var IS_DARTIUM: boolean;
 export declare class AsyncTestCompleter {
     _done: Function;
@@ -44,6 +50,7 @@ export interface GuinessCompatibleSpy extends jasmine.Spy {
 }
 export declare class SpyObject {
     constructor(type?: any);
+    noSuchMethod(args: any): void;
     spy(name: any): any;
     static stub(object?: any, config?: any, overrides?: any): any;
     rttsAssert(value: any): boolean;

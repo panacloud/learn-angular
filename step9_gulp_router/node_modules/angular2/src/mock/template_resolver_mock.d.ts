@@ -2,9 +2,9 @@ import { Type } from 'angular2/src/facade/lang';
 import { View } from 'angular2/src/core/annotations_impl/view';
 import { TemplateResolver } from 'angular2/src/core/compiler/template_resolver';
 export declare class MockTemplateResolver extends TemplateResolver {
-    _templates: Map<Type, View>;
+    _views: Map<Type, View>;
     _inlineTemplates: Map<Type, string>;
-    _templateCache: Map<Type, View>;
+    _viewCache: Map<Type, View>;
     _directiveOverrides: Map<Type, Map<Type, Type>>;
     constructor();
     /**
@@ -28,13 +28,13 @@ export declare class MockTemplateResolver extends TemplateResolver {
      * @param {Type} from
      * @param {Type} to
      */
-    overrideTemplateDirective(component: Type, from: Type, to: Type): void;
+    overrideViewDirective(component: Type, from: Type, to: Type): void;
     /**
      * Returns the {@link View} for a component:
-     * - Set the {@link View} to the overridden template when it exists or fallback to the default
+     * - Set the {@link View} to the overridden view when it exists or fallback to the default
      * `TemplateResolver`,
      *   see `setView`.
-     * - Override the directives, see `overrideTemplateDirective`.
+     * - Override the directives, see `overrideViewDirective`.
      * - Override the @View definition, see `setInlineTemplate`.
      *
      * @param component

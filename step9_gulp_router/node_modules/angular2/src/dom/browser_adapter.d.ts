@@ -11,6 +11,7 @@ export declare class BrowserDomAdapter extends GenericBrowserDomAdapter {
     dispatchEvent(el: any, evt: any): void;
     createMouseEvent(eventType: string): MouseEvent;
     createEvent(eventType: any): Event;
+    preventDefault(evt: Event): void;
     getInnerHTML(el: any): any;
     getOuterHTML(el: any): any;
     nodeName(node: Node): string;
@@ -86,5 +87,9 @@ export declare class BrowserDomAdapter extends GenericBrowserDomAdapter {
     getHistory(): History;
     getLocation(): Location;
     getBaseHref(): any;
+    getUserAgent(): string;
+    setData(element: any, name: string, value: string): void;
+    getData(element: any, name: string): string;
+    setGlobalVar(name: string, value: any): void;
 }
 export declare var __esModule: boolean;

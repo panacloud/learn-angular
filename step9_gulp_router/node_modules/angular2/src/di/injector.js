@@ -6,8 +6,8 @@ var lang_1 = require('angular2/src/facade/lang');
 var async_1 = require('angular2/src/facade/async');
 var key_1 = require('./key');
 var forward_ref_1 = require('./forward_ref');
-var _constructing = new Object();
-var _notFound = new Object();
+var _constructing = lang_1.CONST_EXPR(new Object());
+var _notFound = lang_1.CONST_EXPR(new Object());
 var _Waiting = (function () {
     function _Waiting(promise) {
         this.promise = promise;
@@ -59,17 +59,17 @@ function _isWaiting(obj) {
  */
 var Injector = (function () {
     /**
-     * @param `bindings` A sparse list of {@link ResolvedBinding}s. See `resolve` for the {@link
-     * Injector}.
+     * @param `bindings` A sparse list of {@link ResolvedBinding}s. See `resolve` for the
+     * {@link Injector}.
      * @param `parent` Parent Injector or `null` if root Injector.
      * @param `defaultBindings` Setting to true will auto-create bindings. (Only use with root
      * injector.)
      */
-    function Injector(bindings, parent, defaultBindings) {
-        this._bindings = bindings;
+    function Injector(_bindings, _parent, _defaultBindings) {
+        this._bindings = _bindings;
+        this._parent = _parent;
+        this._defaultBindings = _defaultBindings;
         this._instances = this._createInstances();
-        this._parent = parent;
-        this._defaultBindings = defaultBindings;
         this._asyncStrategy = new _AsyncInjectorStrategy(this);
         this._syncStrategy = new _SyncInjectorStrategy(this);
     }
@@ -115,8 +115,8 @@ var Injector = (function () {
      * Creates an injector from previously resolved bindings. This bypasses resolution and flattening.
      * This API is the recommended way to construct injectors in performance-sensitive parts.
      *
-     * @param `bindings` A sparse list of {@link ResolvedBinding}s. See `resolve` for the {@link
-     *Injector}.
+     * @param `bindings` A sparse list of {@link ResolvedBinding}s. See `resolve` for the
+     * {@link Injector}.
      * @param `defaultBindings` Setting to true will auto-create bindings.
      */
     Injector.fromResolvedBindings = function (bindings, _a) {
@@ -235,14 +235,14 @@ var Injector = (function () {
 })();
 exports.Injector = Injector;
 var _SyncInjectorStrategy = (function () {
-    function _SyncInjectorStrategy(injector) {
-        this.injector = injector;
+    function _SyncInjectorStrategy(_injector) {
+        this._injector = _injector;
     }
     _SyncInjectorStrategy.prototype.readFromCache = function (key) {
         if (key.token === Injector) {
-            return this.injector;
+            return this._injector;
         }
-        var instance = this.injector._getInstance(key);
+        var instance = this._injector._getInstance(key);
         if (instance === _constructing) {
             throw new exceptions_1.CyclicDependencyError(key);
         }
@@ -254,38 +254,38 @@ var _SyncInjectorStrategy = (function () {
         }
     };
     _SyncInjectorStrategy.prototype.instantiate = function (key) {
-        var binding = this.injector._getBinding(key);
+        var binding = this._injector._getBinding(key);
         if (lang_1.isBlank(binding))
             return _notFound;
         if (binding.providedAsPromise)
             throw new exceptions_1.AsyncBindingError(key);
         // add a marker so we can detect cyclic dependencies
-        this.injector._markAsConstructing(key);
-        var deps = this.injector._resolveDependencies(key, binding, false);
+        this._injector._markAsConstructing(key);
+        var deps = this._injector._resolveDependencies(key, binding, false);
         return this._createInstance(key, binding, deps);
     };
     _SyncInjectorStrategy.prototype._createInstance = function (key, binding, deps) {
         try {
             var instance = lang_1.FunctionWrapper.apply(binding.factory, deps);
-            this.injector._setInstance(key, instance);
+            this._injector._setInstance(key, instance);
             return instance;
         }
         catch (e) {
-            this.injector._clear(key);
+            this._injector._clear(key);
             throw new exceptions_1.InstantiationError(e, key);
         }
     };
     return _SyncInjectorStrategy;
 })();
 var _AsyncInjectorStrategy = (function () {
-    function _AsyncInjectorStrategy(injector) {
-        this.injector = injector;
+    function _AsyncInjectorStrategy(_injector) {
+        this._injector = _injector;
     }
     _AsyncInjectorStrategy.prototype.readFromCache = function (key) {
         if (key.token === Injector) {
-            return async_1.PromiseWrapper.resolve(this.injector);
+            return async_1.PromiseWrapper.resolve(this._injector);
         }
-        var instance = this.injector._getInstance(key);
+        var instance = this._injector._getInstance(key);
         if (instance === _constructing) {
             throw new exceptions_1.CyclicDependencyError(key);
         }
@@ -301,17 +301,17 @@ var _AsyncInjectorStrategy = (function () {
     };
     _AsyncInjectorStrategy.prototype.instantiate = function (key) {
         var _this = this;
-        var binding = this.injector._getBinding(key);
+        var binding = this._injector._getBinding(key);
         if (lang_1.isBlank(binding))
             return _notFound;
         // add a marker so we can detect cyclic dependencies
-        this.injector._markAsConstructing(key);
-        var deps = this.injector._resolveDependencies(key, binding, true);
+        this._injector._markAsConstructing(key);
+        var deps = this._injector._resolveDependencies(key, binding, true);
         var depsPromise = async_1.PromiseWrapper.all(deps);
         var promise = async_1.PromiseWrapper.then(depsPromise, null, function (e, s) { return _this._errorHandler(key, e, s); })
             .then(function (deps) { return _this._findOrCreate(key, binding, deps); })
             .then(function (instance) { return _this._cacheInstance(key, instance); });
-        this.injector._setInstance(key, new _Waiting(promise));
+        this._injector._setInstance(key, new _Waiting(promise));
         return promise;
     };
     _AsyncInjectorStrategy.prototype._errorHandler = function (key, e, stack) {
@@ -321,18 +321,18 @@ var _AsyncInjectorStrategy = (function () {
     };
     _AsyncInjectorStrategy.prototype._findOrCreate = function (key, binding, deps) {
         try {
-            var instance = this.injector._getInstance(key);
+            var instance = this._injector._getInstance(key);
             if (!_isWaiting(instance))
                 return instance;
             return lang_1.FunctionWrapper.apply(binding.factory, deps);
         }
         catch (e) {
-            this.injector._clear(key);
+            this._injector._clear(key);
             throw new exceptions_1.InstantiationError(e, key);
         }
     };
     _AsyncInjectorStrategy.prototype._cacheInstance = function (key, instance) {
-        this.injector._setInstance(key, instance);
+        this._injector._setInstance(key, instance);
         return instance;
     };
     return _AsyncInjectorStrategy;

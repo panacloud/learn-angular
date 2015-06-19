@@ -34,6 +34,7 @@ var DomAdapter = (function () {
     DomAdapter.prototype.dispatchEvent = function (el, evt) { throw _abstract(); };
     DomAdapter.prototype.createMouseEvent = function (eventType) { throw _abstract(); };
     DomAdapter.prototype.createEvent = function (eventType) { throw _abstract(); };
+    DomAdapter.prototype.preventDefault = function (evt) { throw _abstract(); };
     DomAdapter.prototype.getInnerHTML = function (el) { throw _abstract(); };
     DomAdapter.prototype.getOuterHTML = function (el) { throw _abstract(); };
     DomAdapter.prototype.nodeName = function (node) { throw _abstract(); };
@@ -126,6 +127,10 @@ var DomAdapter = (function () {
     DomAdapter.prototype.getHistory = function () { throw _abstract(); };
     DomAdapter.prototype.getLocation = function () { throw _abstract(); };
     DomAdapter.prototype.getBaseHref = function () { throw _abstract(); };
+    DomAdapter.prototype.getUserAgent = function () { throw _abstract(); };
+    DomAdapter.prototype.setData = function (element, name, value) { throw _abstract(); };
+    DomAdapter.prototype.getData = function (element, name) { throw _abstract(); };
+    DomAdapter.prototype.setGlobalVar = function (name, value) { throw _abstract(); };
     return DomAdapter;
 })();
 exports.DomAdapter = DomAdapter;

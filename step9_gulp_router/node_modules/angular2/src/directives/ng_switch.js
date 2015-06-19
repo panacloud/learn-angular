@@ -134,7 +134,7 @@ var NgSwitch = (function () {
         }
     };
     NgSwitch = __decorate([
-        annotations_1.Directive({ selector: '[ng-switch]', properties: { 'ngSwitch': 'ngSwitch' } }), 
+        annotations_1.Directive({ selector: '[ng-switch]', properties: ['ngSwitch'] }), 
         __metadata('design:paramtypes', [])
     ], NgSwitch);
     return NgSwitch;
@@ -174,7 +174,7 @@ var NgSwitchWhen = (function () {
         configurable: true
     });
     NgSwitchWhen = __decorate([
-        annotations_1.Directive({ selector: '[ng-switch-when]', properties: { 'ngSwitchWhen': 'ngSwitchWhen' } }),
+        annotations_1.Directive({ selector: '[ng-switch-when]', properties: ['ngSwitchWhen'] }),
         __param(2, annotations_1.Parent()), 
         __metadata('design:paramtypes', [core_1.ViewContainerRef, core_1.ProtoViewRef, NgSwitch])
     ], NgSwitchWhen);
@@ -184,7 +184,7 @@ exports.NgSwitchWhen = NgSwitchWhen;
 /**
  * Defines a default case statement.
  *
- * Default case statements are displayed when no `NgSwitchWhen` match the `switch` value.
+ * Default case statements are displayed when no `NgSwitchWhen` match the `ng-switch` value.
  *
  * Example:
  *

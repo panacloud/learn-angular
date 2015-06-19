@@ -30,9 +30,6 @@ function register(loader) {
   var curSystem;
   function exec(load) {
     var loader = this;
-    if (load.name == '@traceur') {
-      curSystem = System;
-    }
     // support sourceMappingURL (efficiently)
     var sourceMappingURL;
     var lastLineIndex = load.source.lastIndexOf('\n');
@@ -45,12 +42,6 @@ function register(loader) {
     }
 
     __eval(load.source, load.address, sourceMappingURL);
-
-    // traceur overwrites System and Module - write them back
-    if (load.name == '@traceur') {
-      loader.global.traceurSystem = loader.global.System;
-      loader.global.System = curSystem;
-    }
   }
   loader.__exec = exec;
 
@@ -301,7 +292,10 @@ function register(loader) {
       }
       // dynamic, already linked in our registry
       else if (depEntry && !depEntry.declarative) {
-        depExports = { 'default': depEntry.module.exports, '__useDefault': true };
+        if (depEntry.module.exports && depEntry.module.exports.__esModule)
+          depExports = depEntry.module.exports;
+        else
+          depExports = { 'default': depEntry.module.exports, '__useDefault': true };
       }
       // in the loader registry
       else if (!depEntry) {
@@ -368,6 +362,7 @@ function register(loader) {
     if (!entry.executingRequire) {
       for (var i = 0, l = entry.normalizedDeps.length; i < l; i++) {
         var depName = entry.normalizedDeps[i];
+        // we know we only need to link dynamic due to linking algorithm
         var depEntry = loader.defined[depName];
         if (depEntry)
           linkDynamicModule(depEntry, loader);
@@ -425,6 +420,13 @@ function register(loader) {
     entry.evaluated = true;
     entry.module.execute.call(loader.global);
   }
+
+  // override the delete method to also clear the register caches
+  var loaderDelete = loader['delete'];
+  loader['delete'] = function(name) {
+    delete moduleRecords[name];
+    return loaderDelete.call(this, name);
+  };
 
   var registerRegEx = /System\.register/;
 
@@ -508,6 +510,8 @@ function register(loader) {
 
       if (anonRegister)
         entry = anonRegister;
+      else
+        load.metadata.bundle = true;
 
       if (!entry && System.defined[load.name])
         entry = System.defined[load.name];
@@ -519,7 +523,7 @@ function register(loader) {
     // named bundles are just an empty module
     if (!entry && load.metadata.format != 'es6')
       return {
-        deps: [],
+        deps: load.metadata.deps,
         execute: function() {
           return loader.newModule({});
         }
@@ -560,7 +564,7 @@ function register(loader) {
 
           var module = entry.module.exports;
 
-          if (!entry.declarative && module.__esModule !== true)
+          if (!module || !entry.declarative && module.__esModule !== true)
             module = { 'default': module, __useDefault: true };
 
           // return the defined module object

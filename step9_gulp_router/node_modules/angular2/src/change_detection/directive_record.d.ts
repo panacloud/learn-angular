@@ -8,8 +8,17 @@ export declare class DirectiveRecord {
     directiveIndex: DirectiveIndex;
     callOnAllChangesDone: boolean;
     callOnChange: boolean;
+    callOnCheck: boolean;
+    callOnInit: boolean;
     changeDetection: string;
-    constructor(directiveIndex: DirectiveIndex, callOnAllChangesDone: boolean, callOnChange: boolean, changeDetection: string);
+    constructor({directiveIndex, callOnAllChangesDone, callOnChange, callOnCheck, callOnInit, changeDetection}?: {
+        directiveIndex?: DirectiveIndex;
+        callOnAllChangesDone?: boolean;
+        callOnChange?: boolean;
+        callOnCheck?: boolean;
+        callOnInit?: boolean;
+        changeDetection?: string;
+    });
     isOnPushChangeDetection(): boolean;
 }
 export declare var __esModule: boolean;

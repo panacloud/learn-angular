@@ -20,15 +20,43 @@ function global(loader) {
     return value;
   }
 
+  // bare minimum ignores for IE8
+  var ignoredGlobalProps = ['sessionStorage', 'localStorage', 'clipboardData', 'frames', 'external'];
+
+  var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+  function iterateGlobals(callback) {
+    if (Object.keys)
+      Object.keys(loader.global).forEach(callback);
+    else
+      for (var g in loader.global) {
+        if (!hasOwnProperty.call(loader.global, g))
+          continue;
+        callback(g);
+      }
+  }
+
+  function forEachGlobal(callback) {
+    iterateGlobals(function(globalName) {
+      if (indexOf.call(ignoredGlobalProps, globalName) != -1)
+        return;
+      try {
+        var value = loader.global[globalName];
+      }
+      catch(e) {
+        ignoredGlobalProps.push(globalName);
+      }
+      callback(globalName, value);
+    });
+  }
+
   function createHelpers(loader) {
     if (loader.has('@@global-helpers'))
       return;
-
-    var hasOwnProperty = loader.global.hasOwnProperty;
+    
     var moduleGlobals = {};
 
-    var curGlobalObj;
-    var ignoredGlobalProps;
+    var globalSnapshot;
 
     loader.set('@@global-helpers', loader.newModule({
       prepareGlobal: function(moduleName, deps) {
@@ -42,22 +70,11 @@ function global(loader) {
 
         // now store a complete copy of the global object
         // in order to detect changes
-        curGlobalObj = {};
-        ignoredGlobalProps = ['indexedDB', 'sessionStorage', 'localStorage',
-          'clipboardData', 'frames', 'webkitStorageInfo', 'toolbar', 'statusbar',
-          'scrollbars', 'personalbar', 'menubar', 'locationbar', 'webkitIndexedDB',
-          'screenTop', 'screenLeft'
-        ];
-        for (var g in loader.global) {
-          if (indexOf.call(ignoredGlobalProps, g) != -1) { continue; }
-          if (!hasOwnProperty || loader.global.hasOwnProperty(g)) {
-            try {
-              curGlobalObj[g] = loader.global[g];
-            } catch (e) {
-              ignoredGlobalProps.push(g);
-            }
-          }
-        }
+        globalSnapshot = {};
+        
+        forEachGlobal(function(name, value) {
+          globalSnapshot[name] = value;
+        });
       },
       retrieveGlobal: function(moduleName, exportName, init) {
         var singleGlobal;
@@ -78,20 +95,20 @@ function global(loader) {
         }
 
         else {
-          for (var g in loader.global) {
-            if (indexOf.call(ignoredGlobalProps, g) != -1)
-              continue;
-            if ((!hasOwnProperty || loader.global.hasOwnProperty(g)) && g != loader.global && curGlobalObj[g] != loader.global[g]) {
-              exports[g] = loader.global[g];
-              if (singleGlobal) {
-                if (singleGlobal !== loader.global[g])
-                  multipleExports = true;
-              }
-              else if (singleGlobal !== false) {
-                singleGlobal = loader.global[g];
-              }
+          forEachGlobal(function(name, value) {
+            if (globalSnapshot[name] === value)
+              return;
+            if (typeof value === 'undefined')
+              return;
+            exports[name] = value;
+            if (typeof singleGlobal !== 'undefined') {
+              if (!multipleExports && singleGlobal !== value)
+                multipleExports = true;
             }
-          }
+            else {
+              singleGlobal = value;
+            }
+          });
         }
 
         moduleGlobals[moduleName] = exports;
@@ -121,18 +138,19 @@ function global(loader) {
         loader.get('@@global-helpers').prepareGlobal(module.id, load.metadata.deps);
 
         if (exportName)
-          load.source += '\nthis["' + exportName + '"] = ' + exportName + ';';
+          load.source += $__globalName + '["' + exportName + '"] = ' + exportName + ';';
 
-        // disable AMD detection
+        // disable module detection
         var define = loader.global.define;
+        var require = loader.global.require;
+        
         loader.global.define = undefined;
-
-        // ensure no NodeJS environment detection
         loader.global.module = undefined;
         loader.global.exports = undefined;
 
         loader.__exec(load);
 
+        loader.global.require = require;
         loader.global.define = define;
 
         return loader.get('@@global-helpers').retrieveGlobal(module.id, exportName, load.metadata.init);

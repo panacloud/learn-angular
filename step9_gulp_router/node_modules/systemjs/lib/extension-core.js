@@ -68,12 +68,14 @@ function core(loader) {
   // override locate to allow baseURL to be document-relative
   var baseURI;
   if (typeof window == 'undefined' &&
-      typeof WorkerGlobalScope == 'undefined') {
+      typeof WorkerGlobalScope == 'undefined' && typeof process != 'undefined') {
     baseURI = 'file:' + process.cwd() + '/';
+    if (isWindows)
+      baseURI = baseURI.replace(/\\/g, '/');
   }
   // Inside of a Web Worker
-  else if(typeof window == 'undefined') {
-    baseURI = loader.global.location.href;
+  else if (typeof window == 'undefined') {
+    baseURI = location.href;
   }
   else {
     baseURI = document.baseURI;

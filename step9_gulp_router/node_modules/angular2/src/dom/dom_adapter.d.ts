@@ -19,6 +19,7 @@ export declare class DomAdapter {
     dispatchEvent(el: any, evt: any): void;
     createMouseEvent(eventType: any): any;
     createEvent(eventType: string): any;
+    preventDefault(evt: any): void;
     getInnerHTML(el: any): string;
     getOuterHTML(el: any): string;
     nodeName(node: any): string;
@@ -95,9 +96,13 @@ export declare class DomAdapter {
     cssToRules(css: string): List<any>;
     supportsDOMEvents(): boolean;
     supportsNativeShadowDOM(): boolean;
-    getGlobalEventTarget(target: string): void;
-    getHistory(): void;
-    getLocation(): void;
-    getBaseHref(): void;
+    getGlobalEventTarget(target: string): any;
+    getHistory(): any;
+    getLocation(): any;
+    getBaseHref(): string;
+    getUserAgent(): string;
+    setData(element: any, name: string, value: string): void;
+    getData(element: any, name: string): string;
+    setGlobalVar(name: string, value: any): void;
 }
 export declare var __esModule: boolean;

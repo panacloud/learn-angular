@@ -1,1 +1,0 @@
-{"version":3,"file":"opaque_token.js","sourceRoot":"./","sources":["angular2/src/di/opaque_token.ts"],"names":["OpaqueToken","OpaqueToken.constructor","OpaqueToken.toString"],"mappings":"AAKA,AALA;;;;GAIG;;IAIDA,YAAYA,IAAYA;QAAIC,IAAIA,CAACA,KAAKA,GAAGA,SAASA,IAAIA,GAAGA,CAACA;IAACA,CAACA;IAE5DD,QAAQA,KAAaE,MAAMA,CAACA,IAAIA,CAACA,KAAKA,CAACA,CAACA,CAACA;AAC3CF,CAACA;AAAA"}

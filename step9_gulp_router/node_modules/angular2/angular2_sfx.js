@@ -1,15 +1,19 @@
-"use strict";
-var $__angular2__,
-    $__router__;
-var angular = ($__angular2__ = require("./angular2"), $__angular2__ && $__angular2__.__esModule && $__angular2__ || {default: $__angular2__});
-var router = ($__router__ = require("./router"), $__router__ && $__router__.__esModule && $__router__ || {default: $__router__});
-angular.router = router;
-var _prevAngular = window.angular;
-angular.noConflict = function() {
-  window.angular = _prevAngular;
-  return angular;
-};
+var ng = require('./angular2');
+// the router should have its own SFX bundle
+// But currently the module arithemtic 'angular2/router_sfx - angular2/angular2',
+// is not support by system builder.
+var router = require('./router');
+var angular = ng;
 window.angular = angular;
-//# sourceMappingURL=angular2_sfx.es6.map
-
-//# sourceMappingURL=./angular2_sfx.map
+var _prevAngular = window.angular;
+angular.router = router;
+/**
+ * Calling noConflict will restore window.angular to its pre-angular loading state
+ * and return the angular module object.
+ */
+angular.noConflict = function () {
+    window.angular = _prevAngular;
+    return angular;
+};
+exports.__esModule = true;
+//# sourceMappingURL=angular2_sfx.js.map

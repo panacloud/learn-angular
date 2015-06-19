@@ -15,9 +15,8 @@ var lang_1 = require('angular2/src/facade/lang');
 /**
  * Removes or recreates a portion of the DOM tree based on an {expression}.
  *
- * If the expression assigned to `if` evaluates to a false value then the element is removed from
- * the
- * DOM, otherwise a clone of the element is reinserted into the DOM.
+ * If the expression assigned to `ng-if` evaluates to a false value then the element
+ * is removed from the DOM, otherwise a clone of the element is reinserted into the DOM.
  *
  * # Example:
  *
@@ -58,7 +57,7 @@ var NgIf = (function () {
         configurable: true
     });
     NgIf = __decorate([
-        annotations_1.Directive({ selector: '[ng-if]', properties: { 'ngIf': 'ngIf' } }), 
+        annotations_1.Directive({ selector: '[ng-if]', properties: ['ngIf'] }), 
         __metadata('design:paramtypes', [core_1.ViewContainerRef, core_1.ProtoViewRef])
     ], NgIf);
     return NgIf;

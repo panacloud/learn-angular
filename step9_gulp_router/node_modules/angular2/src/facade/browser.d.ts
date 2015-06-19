@@ -9,4 +9,8 @@ export declare var gc: () => any;
 export declare const Event: any;
 export declare const MouseEvent: any;
 export declare const KeyboardEvent: any;
+export declare const EventTarget: any;
+export declare const History: any;
+export declare const Location: any;
+export declare const EventListener: any;
 export declare var __esModule: boolean;

@@ -1,5 +1,6 @@
 /// <reference path="../../typings/node/node.d.ts" />
 /// <reference path="../../typings/angular-protractor/angular-protractor.d.ts" />
+/// <reference path="../../typings/jasmine/jasmine"/>
 var webdriver = require('selenium-webdriver');
 exports.browser = global['browser'];
 exports.$ = global['$'];

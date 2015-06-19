@@ -1,43 +1,36 @@
-"use strict";
-Object.defineProperties(module.exports, {
-  BrowserLocation: {get: function() {
-      return BrowserLocation;
-    }},
-  __esModule: {value: true}
-});
-var $__angular2_47_src_47_dom_47_dom_95_adapter__;
-var DOM = ($__angular2_47_src_47_dom_47_dom_95_adapter__ = require("angular2/src/dom/dom_adapter"), $__angular2_47_src_47_dom_47_dom_95_adapter__ && $__angular2_47_src_47_dom_47_dom_95_adapter__.__esModule && $__angular2_47_src_47_dom_47_dom_95_adapter__ || {default: $__angular2_47_src_47_dom_47_dom_95_adapter__}).DOM;
-var BrowserLocation = function BrowserLocation() {
-  this._location = DOM.getLocation();
-  this._history = DOM.getHistory();
-  this._baseHref = DOM.getBaseHref();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+    switch (arguments.length) {
+        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+    }
 };
-($traceurRuntime.createClass)(BrowserLocation, {
-  onPopState: function(fn) {
-    DOM.getGlobalEventTarget('window').addEventListener('popstate', fn, false);
-  },
-  getBaseHref: function() {
-    return this._baseHref;
-  },
-  path: function() {
-    return this._location.pathname;
-  },
-  pushState: function(state, title, url) {
-    this._history.pushState(state, title, url);
-  },
-  forward: function() {
-    this._history.forward();
-  },
-  back: function() {
-    this._history.back();
-  }
-}, {});
-Object.defineProperty(BrowserLocation.prototype.onPopState, "parameters", {get: function() {
-    return [[Function]];
-  }});
-Object.defineProperty(BrowserLocation.prototype.pushState, "parameters", {get: function() {
-    return [[$traceurRuntime.type.any], [$traceurRuntime.type.string], [$traceurRuntime.type.string]];
-  }});
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var dom_adapter_1 = require('angular2/src/dom/dom_adapter');
+var di_1 = require('angular2/di');
+var BrowserLocation = (function () {
+    function BrowserLocation() {
+        this._location = dom_adapter_1.DOM.getLocation();
+        this._history = dom_adapter_1.DOM.getHistory();
+        this._baseHref = dom_adapter_1.DOM.getBaseHref();
+    }
+    BrowserLocation.prototype.onPopState = function (fn) {
+        dom_adapter_1.DOM.getGlobalEventTarget('window').addEventListener('popstate', fn, false);
+    };
+    BrowserLocation.prototype.getBaseHref = function () { return this._baseHref; };
+    BrowserLocation.prototype.path = function () { return this._location.pathname; };
+    BrowserLocation.prototype.pushState = function (state, title, url) { this._history.pushState(state, title, url); };
+    BrowserLocation.prototype.forward = function () { this._history.forward(); };
+    BrowserLocation.prototype.back = function () { this._history.back(); };
+    BrowserLocation = __decorate([
+        di_1.Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], BrowserLocation);
+    return BrowserLocation;
+})();
+exports.BrowserLocation = BrowserLocation;
+exports.__esModule = true;
 //# sourceMappingURL=browser_location.js.map
-
-//# sourceMappingURL=./browser_location.map

@@ -42,7 +42,7 @@ var CSSClass = (function () {
         configurable: true
     });
     CSSClass = __decorate([
-        annotations_1.Directive({ selector: '[class]', properties: { 'iterableChanges': 'class | keyValDiff' } }), 
+        annotations_1.Directive({ selector: '[class]', properties: ['iterableChanges: class | keyValDiff'] }), 
         __metadata('design:paramtypes', [core_1.ElementRef])
     ], CSSClass);
     return CSSClass;

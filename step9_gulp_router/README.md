@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/mgechev/angular2-seed](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mgechev/angular2-seed?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-A seed project for AngularJS 2 apps.
+A seed project for Angular 2 apps.
 
 It is something similar to the AngularJS Quick Start but does the entire build with gulp.
 
@@ -16,9 +16,49 @@ cd angular2-seed
 npm install
 # If you don't have gulp already installed
 npm install -g gulp
-gulp build.lib.dev
-gulp serve
+# dev
+gulp serve.dev
+# prod
+gulp serve.prod
 ```
+
+# Directory Structure
+
+```
+.
+├── app
+│   ├── components
+│   │   ├── about
+│   │   │   ├── about.html
+│   │   │   └── about.ts
+│   │   └── home
+│   │       ├── home.html
+│   │       └── home.ts
+│   ├── services
+│   ├── app.css
+│   ├── app.html
+│   ├── app.ts
+│   ├── index.html
+│   └── init.ts
+├── dist
+│   ├── dev
+│   └── prod
+├── typings
+├── gulpfile.js
+├── package.json
+├── tsconfig.json
+└── tsd.json
+```
+
+# Now to extend?
+
+If you want to use your custom libraries:
+
+```bash
+npm install my-library --save
+vim gulpfile.js
+```
+Add reference to the installed library in `PATH.src.lib`.
 
 # Contributors
 
