@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for RxJS/dist/cjs/util/Map.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">RxJS/dist/cjs/util/Map.js</span></h1>
+    <h2>
+        Statements: <span class="metric">16.13% <small>(5 / 31)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">12.5% <small>(1 / 8)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">16.13% <small>(5 / 31)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">RxJS/dist/cjs/util/</a> &#187; Map.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+exports.__esModule = true;
+&nbsp;
+var _root = require('./root');
+&nbsp;
+exports['default'] = _root.root.Map || <span class="branch-1 cbranch-no" title="branch not covered" >(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="fstat-no" title="function not covered" >    function Map() {</span>
+<span class="cstat-no" title="statement not covered" >        this.size = 0;</span>
+<span class="cstat-no" title="statement not covered" >        this._values = [];</span>
+<span class="cstat-no" title="statement not covered" >        this._keys = [];</span>
+    }
+<span class="cstat-no" title="statement not covered" >    Map.prototype['delete'] = <span class="fstat-no" title="function not covered" >function (key) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var i = this._keys.indexOf(key);</span>
+<span class="cstat-no" title="statement not covered" >        if (i === -1) {</span>
+<span class="cstat-no" title="statement not covered" >            return false;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        this._values.splice(i, 1);</span>
+<span class="cstat-no" title="statement not covered" >        this._keys.splice(i, 1);</span>
+<span class="cstat-no" title="statement not covered" >        this.size--;</span>
+<span class="cstat-no" title="statement not covered" >        return true;</span>
+    };
+<span class="cstat-no" title="statement not covered" >    Map.prototype.get = <span class="fstat-no" title="function not covered" >function (key) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var i = this._keys.indexOf(key);</span>
+<span class="cstat-no" title="statement not covered" >        return i === -1 ? undefined : this._values[i];</span>
+    };
+<span class="cstat-no" title="statement not covered" >    Map.prototype.set = <span class="fstat-no" title="function not covered" >function (key, value) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var i = this._keys.indexOf(key);</span>
+<span class="cstat-no" title="statement not covered" >        if (i === -1) {</span>
+<span class="cstat-no" title="statement not covered" >            this._keys.push(key);</span>
+<span class="cstat-no" title="statement not covered" >            this._values.push(value);</span>
+<span class="cstat-no" title="statement not covered" >            this.size++;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            this._values[i] = value;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return this;</span>
+    };
+<span class="cstat-no" title="statement not covered" >    Map.prototype.forEach = <span class="fstat-no" title="function not covered" >function (cb, thisArg) {</span></span>
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; this.size; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            cb.call(thisArg, this._values[i], this._keys[i]);</span>
+        }
+    };
+<span class="cstat-no" title="statement not covered" >    return Map;</span>
+})();
+&nbsp;
+module.exports = exports['default'];</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Oct 14 2015 19:04:36 GMT-0700 (PDT)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"version":3,"file":"pipe_lifecycle_reflector.js","sourceRoot":"./","sources":["angular2/src/core/change_detection/pipe_lifecycle_reflector.ts"],"names":["implementsOnDestroy"],"mappings":"AAAA,6BAAoC,IAAS;IAC3CA,MAAMA,CAACA,IAAIA,CAACA,WAAWA,CAACA,SAASA,CAACA,SAASA,CAACA;AAC9CA,CAACA;AAFe,2BAAmB,sBAElC,CAAA"}

@@ -1,0 +1,80 @@
+'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+    switch (arguments.length) {
+        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
+        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
+        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
+    }
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+var di_1 = require('angular2/src/core/di');
+var lang_1 = require('angular2/src/core/facade/lang');
+var metadata_1 = require('angular2/src/core/metadata');
+var validators_1 = require('../validators');
+var lang_2 = require("angular2/src/core/facade/lang");
+var REQUIRED_VALIDATOR = lang_1.CONST_EXPR(new di_1.Provider(validators_1.NG_VALIDATORS, { useValue: validators_1.Validators.required, multi: true }));
+var RequiredValidator = (function () {
+    function RequiredValidator() {
+    }
+    RequiredValidator = __decorate([
+        metadata_1.Directive({
+            selector: '[required][ng-control],[required][ng-form-control],[required][ng-model]',
+            providers: [REQUIRED_VALIDATOR]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], RequiredValidator);
+    return RequiredValidator;
+})();
+exports.RequiredValidator = RequiredValidator;
+function createMinLengthValidator(dir) {
+    return validators_1.Validators.minLength(dir.minLength);
+}
+var MIN_LENGTH_VALIDATOR = lang_1.CONST_EXPR(new di_1.Provider(validators_1.NG_VALIDATORS, {
+    useFactory: createMinLengthValidator,
+    deps: [di_1.forwardRef(function () { return MinLengthValidator; })],
+    multi: true
+}));
+var MinLengthValidator = (function () {
+    function MinLengthValidator(minLength) {
+        this.minLength = lang_2.NumberWrapper.parseInt(minLength, 10);
+    }
+    MinLengthValidator = __decorate([
+        metadata_1.Directive({
+            selector: '[minlength][ng-control],[minlength][ng-form-control],[minlength][ng-model]',
+            providers: [MIN_LENGTH_VALIDATOR]
+        }),
+        __param(0, metadata_1.Attribute("minlength")), 
+        __metadata('design:paramtypes', [String])
+    ], MinLengthValidator);
+    return MinLengthValidator;
+})();
+exports.MinLengthValidator = MinLengthValidator;
+function createMaxLengthValidator(dir) {
+    return validators_1.Validators.maxLength(dir.maxLength);
+}
+var MAX_LENGTH_VALIDATOR = lang_1.CONST_EXPR(new di_1.Provider(validators_1.NG_VALIDATORS, {
+    useFactory: createMaxLengthValidator,
+    deps: [di_1.forwardRef(function () { return MaxLengthValidator; })],
+    multi: true
+}));
+var MaxLengthValidator = (function () {
+    function MaxLengthValidator(maxLength) {
+        this.maxLength = lang_2.NumberWrapper.parseInt(maxLength, 10);
+    }
+    MaxLengthValidator = __decorate([
+        metadata_1.Directive({
+            selector: '[maxlength][ng-control],[maxlength][ng-form-control],[maxlength][ng-model]',
+            providers: [MAX_LENGTH_VALIDATOR]
+        }),
+        __param(0, metadata_1.Attribute("maxlength")), 
+        __metadata('design:paramtypes', [String])
+    ], MaxLengthValidator);
+    return MaxLengthValidator;
+})();
+exports.MaxLengthValidator = MaxLengthValidator;
+//# sourceMappingURL=validators.js.map

@@ -1,8 +1,0 @@
-/// <reference path="../typings/custom.system.d.ts" />
-System.config({
-    paths: { '*': '*.js?v=0.0.0' }
-});
-System.import('./app')
-    .catch(function (e) { return console.error(e, 'Report this error at https://github.com/mgechev/angular2-seed/issues'); });
-
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluaXQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsc0RBQXNEO0FBQ3RELE1BQU0sQ0FBQyxNQUFNLENBQUM7SUFDWixLQUFLLEVBQUUsRUFBQyxHQUFHLEVBQUUsdUJBQXVCLEVBQUM7Q0FDdEMsQ0FBQyxDQUFDO0FBRUgsTUFBTSxDQUFDLE1BQU0sQ0FBQyxPQUFPLENBQUM7S0FDbkIsS0FBSyxDQUFDLFVBQUEsQ0FBQyxJQUFJLE9BQUEsT0FBTyxDQUFDLEtBQUssQ0FBQyxDQUFDLEVBQ3pCLHNFQUFzRSxDQUFDLEVBRDdELENBQzZELENBQUMsQ0FBQyIsImZpbGUiOiJpbml0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8vIDxyZWZlcmVuY2UgcGF0aD1cIi4uL3R5cGluZ3MvY3VzdG9tLnN5c3RlbS5kLnRzXCIgLz5cblN5c3RlbS5jb25maWcoe1xuICBwYXRoczogeycqJzogJyouanM/dj08JT0gVkVSU0lPTiAlPid9XG59KTtcblxuU3lzdGVtLmltcG9ydCgnLi9hcHAnKVxuICAuY2F0Y2goZSA9PiBjb25zb2xlLmVycm9yKGUsXG4gICAgJ1JlcG9ydCB0aGlzIGVycm9yIGF0IGh0dHBzOi8vZ2l0aHViLmNvbS9tZ2VjaGV2L2FuZ3VsYXIyLXNlZWQvaXNzdWVzJykpOyJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==

@@ -1,0 +1,1 @@
+{"version":3,"file":"xhr.js","sourceRoot":"./","sources":["angular2/src/core/compiler/xhr.ts"],"names":["XHR","XHR.constructor","XHR.get"],"mappings":"AAEA;IAAAA;IAEAC,CAACA;IADCD,iBAAGA,GAAHA,UAAIA,GAAWA,IAAqBE,MAAMA,CAACA,IAAIA,CAACA,CAACA,CAACA;IACpDF,UAACA;AAADA,CAACA,AAFD,IAEC;AAFY,WAAG,MAEf,CAAA"}

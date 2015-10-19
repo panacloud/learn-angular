@@ -1,0 +1,1 @@
+{"version":3,"file":"app_root_url.js","sourceRoot":"./","sources":["angular2/src/core/compiler/app_root_url.ts"],"names":["AppRootUrl","AppRootUrl.constructor"],"mappings":";;;;;;;;;;;OAAO,EAAC,UAAU,EAAC,MAAM,sBAAsB;AAG/C;;;;;;;;GAQG;AACH;IAEEA,YAAmBA,KAAaA;QAAbC,UAAKA,GAALA,KAAKA,CAAQA;IAAGA,CAACA;AACtCD,CAACA;AAHD;IAAC,UAAU,EAAE;;eAGZ;AAAA"}

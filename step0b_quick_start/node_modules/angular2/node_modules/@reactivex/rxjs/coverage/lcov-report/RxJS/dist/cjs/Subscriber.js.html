@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for RxJS/dist/cjs/Subscriber.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">RxJS/dist/cjs/Subscriber.js</span></h1>
+    <h2>
+        Statements: <span class="metric">94.95% <small>(94 / 99)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">83.05% <small>(49 / 59)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(20 / 20)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">98.7% <small>(76 / 77)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">RxJS/dist/cjs/</a> &#187; Subscriber.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6080</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">6080</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6080</span>
+<span class="cline-any cline-yes">6080</span>
+<span class="cline-any cline-yes">6080</span>
+<span class="cline-any cline-yes">6080</span>
+<span class="cline-any cline-yes">5091</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">989</span>
+<span class="cline-any cline-yes">989</span>
+<span class="cline-any cline-yes">91</span>
+<span class="cline-any cline-yes">898</span>
+<span class="cline-any cline-yes">865</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">934</span>
+<span class="cline-any cline-yes">934</span>
+<span class="cline-any cline-yes">934</span>
+<span class="cline-any cline-yes">934</span>
+<span class="cline-any cline-yes">934</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">150</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">113</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">178</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5545</span>
+<span class="cline-any cline-yes">5545</span>
+<span class="cline-any cline-yes">1317</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4228</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">666</span>
+<span class="cline-any cline-yes">333</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">333</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2775</span>
+<span class="cline-any cline-yes">456</span>
+<span class="cline-any cline-yes">2319</span>
+<span class="cline-any cline-yes">777</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1542</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">8578</span>
+<span class="cline-any cline-yes">8563</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">524</span>
+<span class="cline-any cline-yes">512</span>
+<span class="cline-any cline-yes">510</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">4872</span>
+<span class="cline-any cline-yes">4820</span>
+<span class="cline-any cline-yes">1426</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25663</span>
+<span class="cline-any cline-yes">25663</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3764</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21899</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7622</span>
+<span class="cline-any cline-yes">7622</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7622</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+exports.__esModule = true;
+&nbsp;
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; <span class="missing-if-branch" title="if path not taken" >I</span>if ('value' in descriptor) <span class="cstat-no" title="statement not covered" >descriptor.writable = true; </span>Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { <span class="missing-if-branch" title="else path not taken" >E</span>if (protoProps) defineProperties(Constructor.prototype, protoProps); <span class="missing-if-branch" title="if path not taken" >I</span>if (staticProps) <span class="cstat-no" title="statement not covered" >defineProperties(Constructor, staticProps); </span>return Constructor; }; })();
+&nbsp;
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? <span class="branch-0 cbranch-no" title="branch not covered" >obj </span>: { 'default': obj }; }
+&nbsp;
+function _classCallCheck(instance, Constructor) { <span class="missing-if-branch" title="if path not taken" >I</span>if (!(instance instanceof Constructor)) { <span class="cstat-no" title="statement not covered" >throw new TypeError('Cannot call a class as a function'); </span>} }
+&nbsp;
+function _inherits(subClass, superClass) { <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof superClass !== 'function' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >superClass !== null)</span> { <span class="cstat-no" title="statement not covered" >throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); </span>} subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); <span class="missing-if-branch" title="else path not taken" >E</span>if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : <span class="branch-1 cbranch-no" title="branch not covered" >subClass.__proto__ = superClass;</span> }
+&nbsp;
+var _utilNoop = require('./util/noop');
+&nbsp;
+var _utilNoop2 = _interopRequireDefault(_utilNoop);
+&nbsp;
+var _utilThrowError = require('./util/throwError');
+&nbsp;
+var _utilThrowError2 = _interopRequireDefault(_utilThrowError);
+&nbsp;
+var _utilTryOrOnError = require('./util/tryOrOnError');
+&nbsp;
+var _utilTryOrOnError2 = _interopRequireDefault(_utilTryOrOnError);
+&nbsp;
+var _Subscription2 = require('./Subscription');
+&nbsp;
+var _Subscription3 = _interopRequireDefault(_Subscription2);
+&nbsp;
+var Subscriber = (function (_Subscription) {
+    _inherits(Subscriber, _Subscription);
+&nbsp;
+    function Subscriber(destination) {
+        _classCallCheck(this, Subscriber);
+&nbsp;
+        _Subscription.call(this);
+        this._isUnsubscribed = false;
+        this.destination = destination;
+        if (!destination) {
+            return;
+        }
+        var subscription = destination._subscription;
+        if (subscription) {
+            this._subscription = subscription;
+        } else if (destination instanceof Subscriber) {
+            this._subscription = destination;
+        }
+    }
+&nbsp;
+    Subscriber.create = function create(next, error, complete) {
+        var subscriber = new Subscriber();
+        subscriber._next = typeof next === "function" &amp;&amp; _utilTryOrOnError2['default'](next) || _utilNoop2['default'];
+        subscriber._error = typeof error === "function" &amp;&amp; error || _utilThrowError2['default'];
+        subscriber._complete = typeof complete === "function" &amp;&amp; complete || _utilNoop2['default'];
+        return subscriber;
+    };
+&nbsp;
+    Subscriber.prototype._next = function _next(value) {
+        this.destination.next(value);
+    };
+&nbsp;
+    Subscriber.prototype._error = function _error(err) {
+        this.destination.error(err);
+    };
+&nbsp;
+    Subscriber.prototype._complete = function _complete() {
+        this.destination.complete();
+    };
+&nbsp;
+    Subscriber.prototype.add = function add(sub) {
+        // route add to the shared Subscription if it exists
+        var _subscription = this._subscription;
+        if (_subscription) {
+            _subscription.add(sub);
+        } else {
+            _Subscription.prototype.add.call(this, sub);
+        }
+    };
+&nbsp;
+    Subscriber.prototype.remove = function remove(sub) {
+        // route remove to the shared Subscription if it exists
+        if (this._subscription) {
+            this._subscription.remove(sub);
+        } else {
+            _Subscription.prototype.remove.call(this, sub);
+        }
+    };
+&nbsp;
+    Subscriber.prototype.unsubscribe = function unsubscribe() {
+        if (this._isUnsubscribed) {
+            return;
+        } else if (this._subscription) {
+            this._isUnsubscribed = true;
+        } else {
+            _Subscription.prototype.unsubscribe.call(this);
+        }
+    };
+&nbsp;
+    Subscriber.prototype.next = function next(value) {
+        if (!this.isUnsubscribed) {
+            this._next(value);
+        }
+    };
+&nbsp;
+    Subscriber.prototype.error = function error(_error2) {
+        if (!this.isUnsubscribed) {
+            this._error(_error2);
+            this.unsubscribe();
+        }
+    };
+&nbsp;
+    Subscriber.prototype.complete = function complete() {
+        if (!this.isUnsubscribed) {
+            this._complete();
+            this.unsubscribe();
+        }
+    };
+&nbsp;
+    _createClass(Subscriber, [{
+        key: 'isUnsubscribed',
+        get: function get() {
+            var subscription = this._subscription;
+            if (subscription) {
+                // route to the shared Subscription if it exists
+                return this._isUnsubscribed || subscription.isUnsubscribed;
+            } else {
+                return this._isUnsubscribed;
+            }
+        },
+        set: function set(value) {
+            var subscription = this._subscription;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (subscription) {
+                // route to the shared Subscription if it exists
+<span class="cstat-no" title="statement not covered" >                subscription.isUnsubscribed = Boolean(value);</span>
+            } else {
+                this._isUnsubscribed = Boolean(value);
+            }
+        }
+    }]);
+&nbsp;
+    return Subscriber;
+})(_Subscription3['default']);
+&nbsp;
+exports['default'] = Subscriber;
+module.exports = exports['default'];</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Oct 14 2015 19:04:36 GMT-0700 (PDT)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

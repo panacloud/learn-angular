@@ -1,0 +1,1 @@
+{"version":3,"file":"publish.js","sourceRoot":"","sources":["publish.ts"],"names":["subjectFactory","publish"],"mappings":"AAAA,wBAAoB,YAAY,CAAC,CAAA;AACjC,0BAAsB,aAAa,CAAC,CAAA;AAEpC;IACEA,MAAMA,CAACA,IAAIA,iBAAOA,EAAEA,CAACA;AACvBA,CAACA;AAED;IACEC,MAAMA,CAACA,mBAASA,CAACA,IAAIA,CAACA,IAAIA,EAAEA,cAAcA,CAACA,CAACA;AAC9CA,CAACA;AAFD;yBAEC,CAAA"}

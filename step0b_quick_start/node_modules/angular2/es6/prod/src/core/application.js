@@ -1,0 +1,15 @@
+import { isPresent } from 'angular2/src/core/facade/lang';
+import { compilerProviders } from 'angular2/src/core/compiler/compiler';
+import { commonBootstrap } from './application_common';
+export { APP_COMPONENT, APP_ID } from './application_tokens';
+export { platform } from './application_common';
+export { PlatformRef, ApplicationRef, applicationCommonBindings, createNgZone, platformCommon, platformBindings } from './application_ref';
+/// See [commonBootstrap] for detailed documentation.
+export function bootstrap(appComponentType, appBindings = null) {
+    var bindings = [compilerProviders()];
+    if (isPresent(appBindings)) {
+        bindings.push(appBindings);
+    }
+    return commonBootstrap(appComponentType, bindings);
+}
+//# sourceMappingURL=application.js.map
