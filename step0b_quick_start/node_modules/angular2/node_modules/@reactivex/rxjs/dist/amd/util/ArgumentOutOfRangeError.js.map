@@ -1,1 +1,0 @@
-{"version":3,"file":"ArgumentOutOfRangeError.js","sourceRoot":"","sources":["../../../src/util/ArgumentOutOfRangeError.ts"],"names":["ArgumentOutOfRangeError","ArgumentOutOfRangeError.constructor"],"mappings":";IAAA;QAAAA;YACEC,SAAIA,GAAGA,yBAAyBA,CAACA;YACjCA,YAAOA,GAAGA,uBAAuBA,CAACA;QACpCA,CAACA;QAADD,8BAACA;IAADA,CAACA,AAHD,IAGC;IAHD;6CAGC,CAAA"}

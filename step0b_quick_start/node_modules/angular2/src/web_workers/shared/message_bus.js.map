@@ -1,1 +1,0 @@
-{"version":3,"file":"message_bus.js","sourceRoot":"./","sources":["angular2/src/web_workers/shared/message_bus.ts"],"names":["MessageBus","MessageBus.constructor"],"mappings":"AAEA,sBAAuC,gCAAgC,CAAC;AAAhE,4CAAY;AAAE,wCAAkD;AAExE;;;;;GAKG;AACH;IAAAA;IA8BAC,CAACA;IAADD,iBAACA;AAADA,CAACA,AA9BD,IA8BC;AA9BqB,kBAAU,aA8B/B,CAAA"}

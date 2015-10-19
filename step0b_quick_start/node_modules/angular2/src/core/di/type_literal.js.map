@@ -1,1 +1,0 @@
-{"version":3,"file":"type_literal.js","sourceRoot":"./","sources":["angular2/src/core/di/type_literal.ts"],"names":["TypeLiteral","TypeLiteral.constructor","TypeLiteral.type"],"mappings":"AAAA;;;GAGG;AACH;IAAAA;IAEAC,CAACA;IADCD,sBAAIA,6BAAIA;aAARA,cAAkBE,MAAMA,IAAIA,KAAKA,CAACA,0CAA0CA,CAACA,CAACA,CAACA,CAACA;;;OAAAF;IAClFA,kBAACA;AAADA,CAACA,AAFD,IAEC;AAFY,mBAAW,cAEvB,CAAA"}
