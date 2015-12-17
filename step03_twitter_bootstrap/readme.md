@@ -1,2 +1,5 @@
-Follow this tutorial:
-https://angular.io/docs/ts/latest/tutorial/toh-pt1.html
+Follow this repo:
+https://github.com/valor-software/ng2-bootstrap
+
+How to use with System.js:
+https://github.com/valor-software/ng2-bootstrap/issues/50
