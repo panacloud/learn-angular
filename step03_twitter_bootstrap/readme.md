@@ -1,2 +1,2 @@
-Follow this repository:
-https://github.com/valor-software/ng2-bootstrap
+Follow this tutorial:
+https://angular.io/docs/ts/latest/tutorial/toh-pt1.html

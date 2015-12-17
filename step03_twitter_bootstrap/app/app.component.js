@@ -21,14 +21,13 @@ System.register(['angular2/core', 'ng2-bootstrap/ng2-bootstrap'], function(expor
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    this.name = 'World';
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <alert type=\"info\">ng2-bootstrap hello world!</alert>\n  ",
-                        directives: [
-                            ng2_bootstrap_1.Alert
-                        ]
+                        directives: [ng2_bootstrap_1.Alert],
+                        template: "\n    <h1>Hello, {{name}}!</h1>\n        Say hello to: <input [value]=\"name\" (input)=\"name = $event.target.value\">\n        <alert type=\"success\">Hello world by ng2-bootstrap</alert>\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
