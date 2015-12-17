@@ -11,18 +11,19 @@
 
     <!-- 2. Configure SystemJS -->
     <script>
+      //https://github.com/valor-software/ng2-bootstrap/issues/50#issuecomment-165450567
       System.config({
         packages: {        
           app: {
             format: 'register',
             defaultExtension: 'js'
+          },
+          "node_modules/ng2-bootstrap": {
+            "defaultExtension": "js"
           }
         },
-        map: {
-            // place for ng2 modules mapping
-            // like
-            // 'ng2-translate': 'node_modules/ng2-translate'
-            'ng2-bootstrap': 'node_modules/ng2-bootstrap'
+        paths: {
+          "ng2-bootstrap/ng2-bootstrap":   "node_modules/ng2-bootstrap/ng2-bootstrap"
         }
       });
       System.import('app/boot')
