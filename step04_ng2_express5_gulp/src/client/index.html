@@ -1,0 +1,40 @@
+<html>
+
+  <head>
+    <title>Angular 2 QuickStart</title>
+
+    <!-- 1. Load libraries -->
+    <script src="lib/angular2-polyfills.js"></script>
+    <script src="lib/system.src.js"></script>
+    <script src="lib/Rx.js"></script>
+    <script src="lib/angular2.dev.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script>
+      //https://github.com/valor-software/ng2-bootstrap/issues/50#issuecomment-165450567
+      System.config({
+        packages: {        
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          },
+          "lib/ng2-bootstrap": {
+            "defaultExtension": "js"
+          }
+        },
+        paths: {
+          "ng2-bootstrap/ng2-bootstrap":   "lib/ng2-bootstrap/ng2-bootstrap"
+        }
+      });
+      System.import('app/boot')
+            .then(null, console.error.bind(console));
+    </script>
+
+  </head>
+
+  <!-- 3. Display the application -->
+  <body>
+    <my-app>Loading...</my-app>
+  </body>
+
+</html>
