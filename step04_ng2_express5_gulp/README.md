@@ -26,9 +26,21 @@ Step 5: Install Packages
 
 npm install
 
+
 Step 6: Start Server
 
 npm start
+
+Step 7: Deploy on Servers
+
+a. Now you can deploy this on Windows Azure
+
+https://azure.microsoft.com/en-us/develop/nodejs/
+
+https://azure.microsoft.com/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+
+b. or On Heroku:
+https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction
 
 
 Please note that you will only edit file in the src directory. Gulp generates a dist directory which will be used to deploy the web application.
