@@ -1,3 +1,0 @@
-We will use ng-book 2 learn: https://www.ng-book.com/2/
-
-Chapter 1 pages 16-17
