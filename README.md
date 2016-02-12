@@ -1,5 +1,5 @@
 # Learn AngularJS 2 in Baby Steps
-We will learn Angular 2 by taking small incremental steps. But before we start with Angular 2 we will first learn TypeScript 1.6.2+:
+We will learn Angular 2 by taking small incremental steps. But before we start with Angular 2 we will first learn TypeScript:
 
 https://github.com/panacloud/learn-typescript
 
