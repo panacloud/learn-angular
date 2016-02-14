@@ -1,9 +1,10 @@
-# Learn AngularJS 2 in Baby Steps
-We will learn Angular 2 by taking small incremental steps. But before we start with Angular 2 we will first learn TypeScript:
+# Learn Angular 2 in Baby Steps
+We will learn Angular 2 by taking small incremental steps. But before we start with Angular 2 we will first have to learn TypeScript and Reactive Programming:
 
 https://github.com/panacloud/learn-typescript
 
-Soon I will start releasing a series of video tutorials in which we will cover these projects. But you can start now by going through the code.
+https://github.com/panacloud/learn-typed-rxjs
+
 
 I am using VSCode as my Editor, just open the project file in VSCode. Read the readme.txt file in each project.
 
