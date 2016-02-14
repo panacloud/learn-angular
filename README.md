@@ -6,7 +6,7 @@ https://github.com/panacloud/learn-typescript
 https://github.com/panacloud/learn-typed-rxjs
 
 
-I am using VSCode as my Editor, just open the project file in VSCode. Read the readme.txt file in each project.
+We will be using VSCode as our Editor, just open the project file in VSCode. Read the readme.txt file in each project.
 
 Install VS Code Editor: https://code.visualstudio.com/
 
