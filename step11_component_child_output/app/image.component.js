@@ -21,13 +21,13 @@ System.register(['angular2/core'], function(exports_1) {
                     this.clicked = new core_1.EventEmitter();
                     this.url = "./../assets/pakistan.png";
                 }
-                ImageComponent.prototype.clickPressed = function () {
-                    this.clicked.emit("Image Clicked");
+                ImageComponent.prototype.clickPressed = function (event) {
+                    this.clicked.emit(event);
                 };
                 ImageComponent = __decorate([
                     core_1.Component({
                         selector: 'clickable-image',
-                        template: "<div>\n                    <img src=\"{{url}}\" width=\"100px\" height=\"100px\" (click)=\"clickPressed()\">\n               </div>",
+                        template: "<div>\n                    <img src=\"{{url}}\" width=\"100px\" height=\"100px\" (click)=\"clickPressed($event)\">\n               </div>",
                         inputs: ['url'],
                         outputs: ['clicked']
                     }), 

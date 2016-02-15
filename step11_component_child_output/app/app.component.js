@@ -22,13 +22,13 @@ System.register(['angular2/core', './image.component'], function(exports_1) {
             AppComponent = (function () {
                 function AppComponent() {
                 }
-                AppComponent.prototype.pressed = function () {
+                AppComponent.prototype.pressed = function (event) {
                     alert("Image has been clicked");
                 };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: " <div>This is the Root App Component, please click the image</div>\n                <clickable-image (clicked)=\"pressed()\"></clickable-image>\n              ",
+                        template: " <div>This is the Root App Component, please click the image</div>\n                <clickable-image (clicked)=\"pressed($event)\"></clickable-image>\n              ",
                         directives: [image_component_1.ImageComponent]
                     }), 
                     __metadata('design:paramtypes', [])

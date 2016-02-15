@@ -3,7 +3,7 @@ import {Component, EventEmitter} from 'angular2/core';
 @Component({
     selector: 'clickable-image',
     template: `<div>
-                    <img src="{{url}}" width="100px" height="100px" (click)="clickPressed()">
+                    <img src="{{url}}" width="100px" height="100px" (click)="clickPressed($event)">
                </div>`,
     inputs: ['url'],
     outputs: ['clicked']
@@ -15,7 +15,7 @@ export class ImageComponent {
       this.url = "./../assets/pakistan.png";
     }
     
-    clickPressed(){
-        this.clicked.emit("Image Clicked");
+    clickPressed(event: MouseEvent){
+        this.clicked.emit(event);
     }
 }
