@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core';
+import {NgIf} from 'angular2/common';
 
 @Component({
     selector: 'my-app',
@@ -6,7 +7,8 @@ import {Component} from 'angular2/core';
               <div *ngIf="true">This will show</div>
               <div *ngIf="a > b">This will show because 5 is greater then 4</div>
               <div *ngIf="myFunction()">This will show because function returns a true value</div>
-    `
+    `,
+    directives: [NgIf]
 })
 export class AppComponent { 
     a: number;
