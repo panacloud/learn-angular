@@ -5,6 +5,7 @@ import {Component} from 'angular2/core';
     template: `
             <div *ngFor="#j of js; #i = index">
                 <span ngNonBindable>{{i + j}}</span>
+                 <span>{{i + j}}</span>
             </div>
     `
 })

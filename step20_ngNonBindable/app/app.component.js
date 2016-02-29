@@ -25,7 +25,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n            <div *ngFor=\"#j of js; #i = index\">\n                <span ngNonBindable>{{i + j}}</span>\n            </div>\n    "
+                        template: "\n            <div *ngFor=\"#j of js; #i = index\">\n                <span ngNonBindable>{{i + j}}</span>\n                 <span>{{i + j}}</span>\n            </div>\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
