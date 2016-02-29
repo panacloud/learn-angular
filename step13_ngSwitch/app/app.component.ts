@@ -1,5 +1,4 @@
 import {Component} from 'angular2/core';
-import {NgSwitch, NgSwitchWhen, NgSwitchDefault} from 'angular2/common';
 
 @Component({
     selector: 'my-app',
@@ -18,8 +17,7 @@ import {NgSwitch, NgSwitchWhen, NgSwitchDefault} from 'angular2/common';
             <div style="margin-top: 20px;">
                 <button class="ui primary button" (click)="nextChoice()">Next choice</button>
             </div>
-    `,
-    directives: [NgSwitch, NgSwitchWhen, NgSwitchDefault]
+    `
 })
 export class AppComponent { 
     choice: number;

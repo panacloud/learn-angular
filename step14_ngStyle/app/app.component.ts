@@ -1,5 +1,4 @@
 import {Component} from 'angular2/core';
-import {NgStyle} from 'angular2/common';
 
 @Component({
     selector: 'my-app',
@@ -8,8 +7,7 @@ import {NgStyle} from 'angular2/common';
                 Uses fixed yellow background with dynamic font size
             </div>
             <button (click)="increaseFontSize()">Increase Font Size</button>
-    `,
-    directives: [NgStyle]
+    `
 })
 export class AppComponent { 
     fontSize: number;
