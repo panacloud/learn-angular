@@ -1,3 +1,3 @@
 We will use ng-book 2 to learn: https://www.ng-book.com/2/
 
-Chapter 1 pages 16-17
+Chapter 1, section "Adding Data to the Component" on pages 17-18
