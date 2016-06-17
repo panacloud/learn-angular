@@ -1,23 +1,19 @@
-import {Component} from 'angular2/core';
-import {NgFor} from 'angular2/common';
+import {Component} from '@angular/core';
+import {NgFor} from '@angular/common';
 
 @Component({
     selector: 'my-app',
-    template: `<form>
-                    <div>
-                        <label for="title">Title:</label>
-                        <input name="title" #newtitle>
-                        <button (click)="addArticle(newtitle)">Submit</button>
-                    </div>
-               </form>`
+    template: `<div> {{counter}}</div>
+               <button (click)="addCounter()">Add</button>
+              `
 })
 export class AppComponent { 
-
+    counter: number;
     constructor() {
-        this.names = ['Zia', 'Hira', 'Inam', 'Rehan', 'Tauha'];
+        this.counter = 0;
     }
     
-    addArticle(title: HTMLInputElement): void {
-        console.log(`Adding article title: ${title.value}`);
+    addCounter(): void {
+        this.counter++;
     }
 }

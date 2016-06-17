@@ -12,6 +12,10 @@ Install VS Code Editor: https://code.visualstudio.com/
 
 For questions and discussion join: https://www.facebook.com/groups/angular2/
 
+If you also want to learn React at the same time, every step here is mirrored in this repo:
+
+https://github.com/panacloud/learn-react
+
 
 
 
