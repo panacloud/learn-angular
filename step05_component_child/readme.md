@@ -1,3 +1,3 @@
-Chapter 1 pages 38-42 ng-book 2: https://www.ng-book.com/2/
+We will use ng-book 2 to learn: https://www.ng-book.com/2/
 
-
+Read Chapter 1, section "Adding the Article Component" on page 29
