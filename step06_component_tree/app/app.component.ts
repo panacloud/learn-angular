@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {ChildOneComponent} from './childOne.component';
 import {ChildTwoComponent} from './childTwo.component';
 
