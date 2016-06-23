@@ -1,12 +1,10 @@
 import {Component} from '@angular/core';
-import {NgFor} from '@angular/common';
 
 @Component({
     selector: 'my-app',
     template: `<ul>
-                    <li *ngFor="#name of names">Hello {{ name }}</li>
-               </ul>`,
-    directives: [NgFor]
+                    <li *ngFor="let name of names">Hello {{ name }}</li>
+               </ul>`
 })
 export class AppComponent { 
     names: string[];
