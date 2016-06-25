@@ -1,9 +1,9 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 @Component({
     selector: 'my-app',
     template: `
-            <div *ngFor="#j of js; #i = index">
+            <div *ngFor="let j of js; let i = index">
                 <span ngNonBindable>{{i + j}}</span>
                  <span>{{i + j}}</span>
             </div>
