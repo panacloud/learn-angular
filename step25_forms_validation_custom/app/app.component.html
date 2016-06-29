@@ -1,0 +1,48 @@
+<div class="container">
+  <h1>Add user</h1>
+  <form #f="ngForm" novalidate>
+    <div class="form-group">
+      <label for="">Username</label>
+      <input type="text" class="form-control" name="username" [ngModel]="user.username" 
+        required minlength="5" maxlength="8" #username="ngModel">
+      <small [hidden]="username.valid || (username.pristine && !f.submitted)" class="text-danger">
+        Username is required (minimum 5 characters).
+      </small>
+      <!--<pre *ngIf="username.errors" class="margin-20">{{ username.errors | json }}</pre>-->
+    </div>
+    <div class="form-group">
+      <label for="">Email</label>
+      <input type="email" class="form-control" name="email" [ngModel]="user.email" 
+        required  #email="ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+      <small [hidden]="email.valid || (email.pristine && !f.submitted)" class="text-danger">
+        Email is required and format should be <i>john@doe.com</i>.
+      </small>
+      <!--<pre *ngIf="email.errors" class="margin-20">{{ email.errors | json }}</pre>-->
+    </div>
+    <div class="form-group">
+      <label for="">Password</label>
+      <input type="password" class="form-control" name="password" [ngModel]="user.password" 
+        required validateEqual="confirmPassword" reverse="true" #password="ngModel">
+      <small [hidden]="password.valid || (password.pristine && !f.submitted)" class="text-danger">
+        Password is required
+      </small>
+      <!--<pre *ngIf="password.errors" class="margin-20">{{ password.errors | json }}</pre>-->
+    </div>
+    <div class="form-group">
+      <label for="">Retype password</label>
+      <input type="password" class="form-control" name="confirmPassword" [ngModel]="user.confirmPassword" 
+        required validateEqual="password" reverse="false" #confirmPassword="ngModel">
+      <small [hidden]="confirmPassword.valid || (confirmPassword.pristine && !f.submitted)" class="text-danger">
+        Password mismatch
+      </small>
+      <!--<pre *ngIf="confirmPassword.errors" class="margin-20">{{ confirmPassword.errors | json }}</pre>-->
+    </div>
+    <button type="submit" (click)="save(f.value, f.valid)" class="btn btn-default">Submit</button>
+    <div class="margin-20" *ngIf="f">
+        <div>Form details:-</div>
+        <pre>Is form valid?: <br>{{f.valid | json}}</pre>
+        <pre>Is form submitted?: <br>{{f.submitted | json}}</pre>
+        <pre>submitted value: <br>{{f.value | json}}</pre>
+      </div>
+  </form>
+</div>
