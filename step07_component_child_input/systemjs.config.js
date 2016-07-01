@@ -47,6 +47,10 @@
  * System configuration for Angular 2 samples
  * Adjust as necessary for your application needs.
  */
+/**
+ * System configuration for Angular 2 samples
+ * Adjust as necessary for your application needs.
+ */
 (function(global) {
   // map tells the System loader where to look for things
   var map = {
@@ -70,6 +74,8 @@
     'platform-browser',
     'platform-browser-dynamic',
     'router',
+    'router-deprecated',
+    'upgrade',
   ];
   // Individual files (~300 requests):
   function packIndex(pkgName) {
@@ -89,3 +95,4 @@
   };
   System.config(config);
 })(this);
+
