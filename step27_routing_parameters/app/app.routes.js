@@ -8,7 +8,7 @@ exports.routes = [
         component: page1_component_1.Page1Component
     },
     {
-        path: 'page2',
+        path: 'page2/:id',
         component: page2_component_1.Page2Component
     },
     { path: '',
