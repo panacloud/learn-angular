@@ -9,3 +9,7 @@ https://egghead.io/lessons/angular-2-rendering-an-observable-with-the-async-pipe
 Gist:
 
 https://gist.run/?id=2ea9cca663c9032fb8aa
+
+For the source code of the entire series:
+
+https://github.com/johnlindquist/rxjs-in-angular2
