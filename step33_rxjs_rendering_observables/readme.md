@@ -10,6 +10,10 @@ Gist:
 
 https://gist.run/?id=2ea9cca663c9032fb8aa
 
-For the source code of the entire series:
+For the source code of the entire "Building a Time Machine with Angular 2" series:
 
 https://github.com/johnlindquist/rxjs-in-angular2
+
+The paid video's for the entire "Building a Time Machine with Angular 2" series:
+
+https://egghead.io/courses/building-a-time-machine-with-angular-2-and-rxjs
