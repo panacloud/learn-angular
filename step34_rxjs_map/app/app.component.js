@@ -20,7 +20,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1>{{clock | async }}</h1>"
+            template: "<h1>{{clock | async | date:'medium'}}</h1>"
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

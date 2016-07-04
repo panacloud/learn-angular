@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'my-app',
-  template: `<h1>{{clock | async }}</h1>`
+  template: `<h1>{{clock | async | date:'medium'}}</h1>`
 })
 export class AppComponent { 
   clock = Observable.interval(1000).map(() => new Date());
