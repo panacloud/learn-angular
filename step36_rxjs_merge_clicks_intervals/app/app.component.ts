@@ -7,16 +7,19 @@ import 'rxjs/add/Observable/merge';
 
 @Component({
   selector: 'my-app',
-  template: `<h1>{{clock | async }}</h1>
-    <button (click)='click.next()'>Update Clock</button>
+  template: `<h1>{{clock | async | date: 'medium' }}</h1>
+    <button (click)='click$.next()'>Update Clock</button>
   `
 })
 export class AppComponent { 
-  click = new Subject();
-  timer = Observable.interval(5000);
-  clock = Observable.merge(this.click, this.timer).map(() => new Date());
+  click$ = new Subject();
+  clock;
 
   constructor(){
+    this.clock = Observable.merge(
+            this.click$,
+            Observable.interval(5000)
+        ).map(()=> new Date());
     this.clock.subscribe(console.log.bind(console));
   }
 }
