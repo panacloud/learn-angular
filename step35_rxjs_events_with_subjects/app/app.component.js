@@ -13,14 +13,14 @@ var Subject_1 = require('rxjs/Subject');
 require('rxjs/add/operator/map');
 var AppComponent = (function () {
     function AppComponent() {
-        this.click = new Subject_1.Subject();
-        this.clock = this.click.map(function () { return new Date(); });
+        this.click$ = new Subject_1.Subject();
+        this.clock = this.click$.map(function () { return new Date(); });
         this.clock.subscribe(console.log.bind(console));
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1>{{clock | async }}</h1>\n    <button (click)='click.next()'>Update Clock</button>\n  "
+            template: "<h1>{{clock | async | date: 'medium' }}</h1>\n    <button (click)='click$.next()'>Update Clock</button>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
