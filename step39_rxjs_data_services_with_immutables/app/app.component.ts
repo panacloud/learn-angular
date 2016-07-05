@@ -11,7 +11,7 @@ import {List} from 'immutable';
     <h1>Item List</h1>
     <ul id="todo-list">
       <li *ngFor="let item of data.todos | async" >
-        <span>a{{item.item}}</span>
+        <span>{{item.item}}</span>
     </li>
 </ul>
     <form (ngSubmit)="onSubmit()">
