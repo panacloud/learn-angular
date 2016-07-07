@@ -50,6 +50,10 @@ Another good tutorial:
 
 http://gonehybrid.com/a-beginners-guide-to-using-ngrx-in-an-ionic-2-app-part-1/
 
+If you want to learn how to make make REST calls read the complete article:
+
+http://onehungrymind.com/build-better-angular-2-application-redux-ngr
+
 
 Other References:
 
