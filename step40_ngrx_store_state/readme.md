@@ -46,6 +46,10 @@ https://github.com/angular/angularfire2
 Comprehensive Introduction to @ngrx/store:
 https://gist.github.com/btroncone/a6e4347326749f938510
 
+Another good tutorial:
+
+http://gonehybrid.com/a-beginners-guide-to-using-ngrx-in-an-ionic-2-app-part-1/
+
 
 Other References:
 
