@@ -23,15 +23,22 @@ Source Code:
 https://gist.run/?id=4a03b0eb0b4e388eaaa1
 
 
-There is four kinds of architecture we can use to store application state in Angular 2:
+There are four kinds of architecture we can use to store application state in Angular 2:
 
 1. Traditional architecture where state is stored in plain JS objects inside components
 
-2. RxJS architecture where RxJS is used to manage state https://github.com/panacloud/learn-angular2/tree/master/step37_rxjs_states_startwith_scan
+https://github.com/panacloud/learn-angular2/tree/master/step04_binding_properties
 
-3. Redux architecture where NgRx/Store is used to manage state. The basics of it is covered in this step. We prefer to use it when using with REST based server API's.
+2. RxJS architecture where RxJS is used to manage state 
+
+https://github.com/panacloud/learn-angular2/tree/master/step37_rxjs_states_startwith_scan
+
+3. Redux architecture where NgRx/Store is used to manage state. We prefer to use it when using with REST based server API's.
+
+This step shows the redux architecture.
 
 4. AngularFire2/RxJS architecture where we have realtime data stored in Firebase.  
+https://github.com/angular/angularfire2
 
 
 
