@@ -4,7 +4,7 @@ import {List} from 'immutable';
 export const SECOND = 'SECOND';
 export const HOUR = 'HOUR';
 
-export const clockReducer: ActionReducer<Date> = (state = new Date(), action: Action)=> {
+export const clockReducer: ActionReducer<Date> = (state = new Date(), action: Action = {type: ""})=> {
     const date = new Date(state.getTime());
     switch(action.type){
         case SECOND:
@@ -28,11 +28,12 @@ export interface IPerson {
     time: Date;
 }
 
+
 const defaultPeople : List<IPerson> = List([
-    {name: "Sara", time: clockReducer(undefined, {type: ""})},
-    {name: "John", time: clockReducer(undefined, {type: ""})},
-    {name: "Nancy", time: clockReducer(undefined, {type: ""})},
-    {name: "Drew", time: clockReducer(undefined, {type: ""})}
+    {name: "Sara", time: clockReducer(undefined, undefined)},
+    {name: "John", time: clockReducer(undefined, undefined)},
+    {name: "Nancy", time: clockReducer(undefined, undefined)},
+    {name: "Drew", time: clockReducer(undefined, undefined)}
 ]);
 export const peopleReducer = (state = defaultPeople, action: Action)=> {
     switch (action.type) {
