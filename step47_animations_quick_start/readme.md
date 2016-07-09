@@ -5,7 +5,7 @@ https://www.npmjs.com/package/web-animations-js
 
 Read:
 
-https://pawelgrzybek.com/intro-to-the-web-animations-api/
+https://angular.io/docs/ts/latest/guide/animations.html
 
 
 
