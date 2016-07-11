@@ -2,7 +2,7 @@ Read:
 
 https://toddmotto.com/emulated-native-shadow-dom-angular-2-view-encapsulation
 
-Also read the "View Encapsulation" and "Shadow Dom" sections of the chapter "Advanced Components" of our text book:
+Also read the "View Encapsulation" and "Shadow DOM Encapsulation" sections of the chapter "Advanced Components" of our text book:
 
 https://www.ng-book.com/2/
 
