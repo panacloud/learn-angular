@@ -13,7 +13,7 @@ var angularfire2_1 = require('angularfire2');
 var AppComponent = (function () {
     function AppComponent(af) {
         this.item = af.database.object('/item');
-        this.add("hello Pakitan");
+        //this.add("hello Pakitan");
     }
     AppComponent.prototype.add = function (value) {
         this.item.set({ name: value });

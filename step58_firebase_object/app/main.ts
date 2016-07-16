@@ -7,10 +7,10 @@ bootstrap(AppComponent, [
   FIREBASE_PROVIDERS,
   // Initialize Firebase app  
   defaultFirebase({
-    apiKey: "AIzaSyBfPPVdQLUnAq2yJC3yEg2rEdclksJdxvA",
-    authDomain: "quickstart-db.firebaseapp.com",
-    databaseURL: "https://quickstart-db.firebaseio.com",
-    storageBucket: "quickstart-db.appspot.com",
+    apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    storageBucket: "",
   })
 ]);
 

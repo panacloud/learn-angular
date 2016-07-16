@@ -12,7 +12,7 @@ export class AppComponent {
   item: FirebaseObjectObservable<any>;
   constructor(af: AngularFire) {
     this.item = af.database.object('/item');
-    this.add("hello Pakitan");
+    //this.add("hello Pakitan");
   }
 
   add(value: string){
