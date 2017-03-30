@@ -1,5 +1,5 @@
-# Learn Angular 2 in Baby Steps
-We will learn Angular 2 by taking small incremental steps. But before we start with Angular 2 we will first have to learn TypeScript and Reactive Programming:
+# Learn Angular 4 in Baby Steps
+We will learn Angular 4 by taking small incremental steps. But before we start with Angular 4 we will first have to learn TypeScript and Reactive Programming:
 
 https://github.com/panacloud/learn-typescript
 
